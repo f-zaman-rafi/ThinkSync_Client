@@ -2,27 +2,36 @@
 
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
+import useAuth from "../../Hooks/useAuth";
 
 const SignUp = () => {
 
     const {
         register,
         handleSubmit,
-
         formState: { errors },
     } = useForm()
+    const { createUser } = useAuth()
 
-    const onSubmit = (data) => console.log(data)
+
+    const onSubmit = data => {
+        console.log(data)
+        createUser(data.email, data.password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+            })
+    }
 
 
     return (
         <>
 
             <Helmet>
-                <title>ThinkSync | Home</title>
+                <title>Sign Up | ThinkSync</title>
             </Helmet>
 
-            <div>
+            <div className="py-20">
                 <div className="w-full max-w-sm p-6 m-auto mx-auto bg-white rounded-lg shadow-md dark:bg-gray-800">
                     <div className="flex justify-center mx-auto">
                         <img className="w-auto h-7 sm:h-8" src="https://merakiui.com/images/logo.svg" alt="" />

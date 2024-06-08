@@ -19,10 +19,10 @@ const SignIn = () => {
         <>
 
             <Helmet>
-                <title>ThinkSync | Home</title>
+                <title>Sign In | ThinkSync</title>
             </Helmet>
 
-            <div>
+            <div className="py-20">
                 <div className="w-full max-w-sm p-6 m-auto mx-auto bg-white rounded-lg shadow-md dark:bg-gray-800">
                     <div className="flex justify-center mx-auto">
                         <img className="w-auto h-7 sm:h-8" src="https://merakiui.com/images/logo.svg" alt="" />

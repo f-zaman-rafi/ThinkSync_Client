@@ -6,7 +6,7 @@ const Home = () => {
     return (
         <div>
             <Helmet>
-                <title>ThinkSync | Home</title>
+                <title>Home | ThinkSync</title>
             </Helmet>
             <Banner></Banner>
             <StudySessionSection></StudySessionSection>
