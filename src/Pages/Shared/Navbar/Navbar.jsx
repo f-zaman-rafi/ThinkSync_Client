@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const navOptions = <>
@@ -25,7 +26,7 @@ const Navbar = () => {
                             {navOptions}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">thinkSync</a>
+                    <Link to={'/'}><a className="btn btn-ghost text-xl">thinkSync</a></Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

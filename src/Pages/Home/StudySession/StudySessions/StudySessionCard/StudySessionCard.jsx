@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
 
+import { Link } from "react-router-dom";
+
 const StudySessionCard = ({ session }) => {
-    const { sessionTitle, sessionDescription } = session
+    const { sessionTitle, sessionDescription, _id } = session
     return (
         <div>
             <div className="card w-96 bg-base-100 shadow-xl">
@@ -9,7 +11,7 @@ const StudySessionCard = ({ session }) => {
                     <h2 className="card-title py-5">{sessionTitle}</h2>
                     <p className="leading-loose ">{sessionDescription}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Read More</button>
+                        <Link to={`sessions/${_id}`}><button className="btn btn-primary">Read More</button></Link>
                     </div>
                 </div>
             </div>

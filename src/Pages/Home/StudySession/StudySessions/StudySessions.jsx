@@ -1,16 +1,16 @@
-import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from "../../../Shared/LoadingSpinner/LoadingSpinner";
 import StudySessionCard from "./StudySessionCard/StudySessionCard";
+import useAxiosCommon from "../../../../Hooks/useAxiosCommon";
 
 const StudySessions = () => {
-    const axiosSecure = useAxiosSecure()
+    const axiosCommon = useAxiosCommon()
 
 
     const { data: sessions = [], isLoading } = useQuery({
         queryKey: ['sessions'],
         queryFn: async () => {
-            const { data } = await axiosSecure.get('/sessions')
+            const { data } = await axiosCommon.get('/sessions')
             return data
         }
     })
