@@ -1,18 +1,27 @@
 import { Link } from "react-router-dom";
+import useAuth from "../../../Hooks/useAuth";
+import { useState } from "react";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
+
+    const [isHovering, setIsHovering] = useState(false);
+
+    const { user, logOut } = useAuth()
+
+    console.log(user)
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { toast.success('Logged Out Successfully') })
+            .catch(error => console.log(error));
+    }
+
     const navOptions = <>
-        <li><a>Item 1</a></li>
+        <li><p>Item 1</p></li>
         <li>
-            <details>
-                <summary>Parent</summary>
-                <ul className="p-2">
-                    <li><a>Submenu 1</a></li>
-                    <li><a>Submenu 2</a></li>
-                </ul>
-            </details>
+            <p>Item 2</p>
         </li>
-        <li><a>Item 3</a></li>
+        <li><p>Item 3</p></li>
     </>
     return (
         <div>
@@ -26,7 +35,7 @@ const Navbar = () => {
                             {navOptions}
                         </ul>
                     </div>
-                    <Link to={'/'}><a className="btn btn-ghost text-xl">thinkSync</a></Link>
+                    <Link to={'/'}><p className="btn btn-ghost text-xl">thinkSync</p></Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -34,11 +43,25 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to='/sign-up'><a className="btn">Sign up</a></Link>
-                    <Link to='/sign-in'><a className="btn">Sign in</a></Link>
+                    {user ? (
+                        <div
+                            onMouseEnter={() => setIsHovering(true)}
+                            onMouseLeave={() => setIsHovering(false)}
+                        >
+                            <p>{user.displayName ? user.displayName : user.email}</p>
+                            {isHovering && (
+                                <button className="btn" onClick={handleLogOut}>
+                                    Logout
+                                </button>
+                            )}
+                        </div>
+                    ) : (
+                        <Link to='/sign-in' className="btn">Sign In</Link>
+                    )}
                 </div>
-            </div>
-        </div>
+
+            </div >
+        </div >
     );
 };
 

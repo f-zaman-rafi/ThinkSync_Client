@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import { createContext, useEffect, useState } from 'react'
 import {
+    GithubAuthProvider,
     GoogleAuthProvider,
     createUserWithEmailAndPassword,
     onAuthStateChanged,
@@ -13,6 +14,7 @@ import {
 
 import axios from 'axios'
 import auth from '../Firebase/firebase.config'
+import { Toaster } from 'react-hot-toast'
 export const AuthContext = createContext(null)
 
 const googleProvider = new GoogleAuthProvider()
@@ -35,6 +37,14 @@ const AuthProvider = ({ children }) => {
         setLoading(true)
         return signInWithPopup(auth, googleProvider)
     }
+
+
+    const githubProvider = new GithubAuthProvider();
+    const signInWithGithub = () => {
+        setLoading(true)
+        return signInWithPopup(auth, githubProvider)
+    }
+
 
     const resetPassword = email => {
         setLoading(true)
@@ -86,13 +96,17 @@ const AuthProvider = ({ children }) => {
         createUser,
         signIn,
         signInWithGoogle,
+        signInWithGithub,
         resetPassword,
         logOut,
         updateUserProfile,
     }
 
     return (
-        <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
+        <AuthContext.Provider value={authInfo}>
+            {children}
+            <Toaster position="top-center"></Toaster>
+        </AuthContext.Provider>
     )
 }
 
