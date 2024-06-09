@@ -7,7 +7,7 @@ const Navbar = () => {
 
     const { user, logOut } = useAuth()
 
-    console.log(user)
+    // console.log(user)
     const handleLogOut = () => {
         logOut()
             .then(() => { toast.success('Logged Out Successfully') })
@@ -35,7 +35,7 @@ const Navbar = () => {
                 <div className="navbar-end">
                     {user ? (
                         <div className="flex gap-4 justify-center items-center">
-                            <Link><p className="btn btn-xs btn-ghost">Dashboard</p></Link>
+                            <Link to="/dashboard"><p className="btn btn-xs btn-ghost">Dashboard</p></Link>
                             <button onClick={handleLogOut} className="btn btn-ghost btn-xs">Sign Out</button>
                             <p ><img className="h-8 w-8 rounded-full" src={user.photoURL} alt="" /></p>
                         </div>

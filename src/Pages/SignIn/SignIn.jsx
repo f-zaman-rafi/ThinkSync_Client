@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
+import useAxiosCommon from "../../Hooks/useAxiosCommon";
 
 const SignIn = () => {
 
@@ -17,6 +18,7 @@ const SignIn = () => {
 
     const location = useLocation()
     const navigate = useNavigate()
+    const axiosCommon = useAxiosCommon()
 
 
     const onSubmit = data => {
@@ -35,9 +37,21 @@ const SignIn = () => {
     const handleGoogleSignIn = async () => {
         try {
             await signInWithGoogle()
-            const from = location.state?.from?.pathname || '/';
-            navigate(from)
-            toast.success('Sign-In with Google Successfully')
+                .then(result => {
+                    console.log(result.user)
+                    const userInfo = {
+                        email: result.user?.email,
+                        name: result.user?.displayName,
+                        role: "Student"
+                    }
+                    axiosCommon.post('/users', userInfo)
+                        .then(res => {
+                            console.log(res.data)
+                            const from = location.state?.from?.pathname || '/';
+                            navigate(from)
+                            toast.success('Sign-In with Google Successfully')
+                        })
+                })
         }
         catch (error) {
             console.log(error)
@@ -50,9 +64,21 @@ const SignIn = () => {
     const handleGithubSignIn = async () => {
         try {
             await signInWithGithub()
-            const from = location.state?.from?.pathname || '/';
-            navigate(from)
-            toast.success('SignUp with Github Successfully')
+                .then(result => {
+                    console.log(result.user)
+                    const userInfo = {
+                        email: result.user?.email,
+                        name: result.user?.displayName,
+                        role: "Student"
+                    }
+                    axiosCommon.post('/users', userInfo)
+                        .then(res => {
+                            console.log(res.data)
+                            const from = location.state?.from?.pathname || '/';
+                            navigate(from)
+                            toast.success('Sign-In with Github Successfully')
+                        })
+                })
         }
         catch (error) {
             console.log(error)

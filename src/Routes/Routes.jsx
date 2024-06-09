@@ -6,7 +6,9 @@ import Home from "../Pages/Home/Home";
 import StudySessionDetails from "../Pages/Home/StudySession/StudySessionDetails/StudySessionDetails";
 import SignUp from "../Pages/SignUp/SignUp";
 import SignIn from "../Pages/SignIn/SignIn";
+import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../Layout/Dashboard";
 
 export const router = createBrowserRouter([
     {
@@ -31,4 +33,14 @@ export const router = createBrowserRouter([
             }
         ]
     },
+    {
+        path: "dashboard",
+        element: <Dashboard></Dashboard>,
+        children: [
+            {
+                path: "all-users",
+                element: <AllUsers></AllUsers>
+            }
+        ]
+    }
 ]);
