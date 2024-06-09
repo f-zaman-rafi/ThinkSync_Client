@@ -13,7 +13,7 @@ const SignUp = () => {
         handleSubmit,
         formState: { errors },
     } = useForm()
-    const { createUser, signInWithGoogle, signInWithGithub } = useAuth()
+    const { createUser, signInWithGoogle, signInWithGithub, updateUserProfile, user, setUser } = useAuth()
     const location = useLocation()
     const navigate = useNavigate()
 
@@ -22,12 +22,18 @@ const SignUp = () => {
         console.log(data)
         createUser(data.email, data.password)
             .then(result => {
-                const loggedUser = result.user;
+                updateUserProfile(data.username);
+                setUser({ ...user, displayName: data.username, Role: data.role });
                 const from = location.state?.from?.pathname || '/';
                 navigate(from)
                 toast.success('Sign-Up Successfully')
+                const loggedUser = result.user;
                 console.log(loggedUser);
             })
+            .catch(error => {
+                console.log(error);
+                toast.error(error.message);
+            });
     }
 
     // googleSignIn
@@ -144,10 +150,31 @@ const SignUp = () => {
                             {errors.password && <span className="text-red-500 ml-1 text-xs">{errors.password.message}</span>}
                         </div>
 
+                        <div className="mt-4">
+                            <div className="flex items-center justify-between">
+                                <label name="role" className="block text-sm text-gray-800 dark:text-gray-200">Select your role here</label>
+                            </div>
+
+                            <select
+                                id="role"
+                                className="select w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                {...register("role", { required: "Role is required" })}
+                            >
+                                <option value="" selected disabled>Pick your Role</option>
+                                <option value="Admin">Admin</option>
+                                <option value="Tutor">Tutor</option>
+                                <option value="Student">Student</option>
+                            </select>
+                            {errors && errors.role && <span className="text-red-500 ml-1 text-xs">{errors.role.message}</span>}
+                        </div>
+
+
+
+
+
 
                         <div className="mt-6">
                             <input className="btn w-full border-stone-600 btn-outline" type="submit" value="Sign Up" />
-
                         </div>
                     </form>
 

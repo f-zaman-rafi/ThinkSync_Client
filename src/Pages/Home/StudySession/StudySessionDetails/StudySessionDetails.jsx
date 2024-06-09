@@ -31,6 +31,7 @@ const StudySessionDetails = () => {
             <h1 className="text-white font-bold text-xl leading-loose">Class End Date: {classEndDate}</h1>
             <h1 className="text-white font-bold text-xl leading-loose">Duration: {sessionDuration}</h1>
             <h1 className="text-white font-bold text-xl leading-loose">Registration Fee: {registrationFee}</h1>
+            <div className="text-center"><button className="my-10 btn btn-warning btn-wide"  >Book Now!</button></div>
         </div>
     );
 };

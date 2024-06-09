@@ -59,10 +59,10 @@ const AuthProvider = ({ children }) => {
         return signOut(auth)
     }
 
-    const updateUserProfile = (name, photo) => {
+    const updateUserProfile = (name, role) => {
         return updateProfile(auth.currentUser, {
             displayName: name,
-            photoURL: photo,
+            Role: role,
         })
     }
     // Get token from server
@@ -91,6 +91,7 @@ const AuthProvider = ({ children }) => {
 
     const authInfo = {
         user,
+        setUser,
         loading,
         setLoading,
         createUser,
