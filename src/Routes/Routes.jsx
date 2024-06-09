@@ -6,6 +6,7 @@ import Home from "../Pages/Home/Home";
 import StudySessionDetails from "../Pages/Home/StudySession/StudySessionDetails/StudySessionDetails";
 import SignUp from "../Pages/SignUp/SignUp";
 import SignIn from "../Pages/SignIn/SignIn";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -18,7 +19,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/sessions/:id',
-                element: <StudySessionDetails></StudySessionDetails>
+                element: <PrivateRoute><StudySessionDetails></StudySessionDetails></PrivateRoute>
             },
             {
                 path: '/sign-up',

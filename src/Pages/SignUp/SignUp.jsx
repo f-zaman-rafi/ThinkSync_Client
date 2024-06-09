@@ -3,7 +3,7 @@
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import useAuth from "../../Hooks/useAuth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const SignUp = () => {
@@ -14,6 +14,7 @@ const SignUp = () => {
         formState: { errors },
     } = useForm()
     const { createUser, signInWithGoogle, signInWithGithub } = useAuth()
+    const location = useLocation()
     const navigate = useNavigate()
 
 
@@ -22,7 +23,8 @@ const SignUp = () => {
         createUser(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user;
-                navigate('/')
+                const from = location.state?.from?.pathname || '/';
+                navigate(from)
                 toast.success('Sign-Up Successfully')
                 console.log(loggedUser);
             })
@@ -33,7 +35,8 @@ const SignUp = () => {
     const handleGoogleSignIn = async () => {
         try {
             await signInWithGoogle()
-            navigate('/')
+            const from = location?.state?.from?.pathname || '/';
+            navigate(from)
             toast.success('SignUp with Google Successfully')
         }
         catch (error) {
@@ -47,7 +50,8 @@ const SignUp = () => {
     const handleGithubSignIn = async () => {
         try {
             await signInWithGithub()
-            navigate('/')
+            const from = location.state?.from?.pathname || '/';
+            navigate(from)
             toast.success('SignUp with Github Successfully')
         }
         catch (error) {

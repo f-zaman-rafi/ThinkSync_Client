@@ -40,7 +40,10 @@ const Navbar = () => {
                             <p ><img className="h-8 w-8 rounded-full" src={user.photoURL} alt="" /></p>
                         </div>
                     ) : (
-                        <Link to='/sign-in' className="btn">Sign In</Link>
+                        <div className="flex gap-3">
+                            <Link to='/sign-in' className="btn">Sign In</Link>
+                            <Link to='/sign-up' className="btn">Sign Up</Link>
+                        </div>
                     )}
                 </div>
 
