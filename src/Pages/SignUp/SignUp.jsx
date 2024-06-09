@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../Hooks/useAuth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import useAxiosCommon from "../../Hooks/useAxiosCommon";
 
 const SignUp = () => {
 
@@ -16,25 +17,46 @@ const SignUp = () => {
     const { createUser, signInWithGoogle, signInWithGithub, updateUserProfile, user, setUser } = useAuth()
     const location = useLocation()
     const navigate = useNavigate()
+    const axiosCommon = useAxiosCommon()
 
 
     const onSubmit = data => {
-        console.log(data)
+        console.log(data);
+
         createUser(data.email, data.password)
             .then(result => {
-                updateUserProfile(data.username);
-                setUser({ ...user, displayName: data.username, Role: data.role });
-                const from = location.state?.from?.pathname || '/';
-                navigate(from)
-                toast.success('Sign-Up Successfully')
                 const loggedUser = result.user;
-                console.log(loggedUser);
+
+                updateUserProfile(data.username)
+                    .then(() => {
+                        setUser({ ...loggedUser, displayName: data.username, role: data.role });
+
+                        const userInfo = { name: data.username, email: data.email, role: data.role };
+                        axiosCommon.post('/users', userInfo)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    console.log('Data inserted into the database successfully');
+                                    const from = location.state?.from?.pathname || '/';
+                                    navigate(from);
+                                    toast.success('Sign-Up Successfully');
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Error inserting data into database:', error);
+                                toast.error('Error inserting data into database');
+                            });
+                    })
+                    .catch(error => {
+                        console.error('Error updating user profile:', error);
+                        toast.error('Error updating user profile');
+                    });
             })
             .catch(error => {
-                console.log(error);
+                console.error('Error creating user:', error);
                 toast.error(error.message);
             });
-    }
+    };
+
 
     // googleSignIn
 
