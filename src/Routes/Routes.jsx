@@ -9,6 +9,7 @@ import SignIn from "../Pages/SignIn/SignIn";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Layout/Dashboard";
+import ModalTest from "../Pages/Dashboard/ModalTest";
 
 export const router = createBrowserRouter([
     {
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
             {
                 path: "all-users",
                 element: <AllUsers></AllUsers>
+            },
+            {
+                path: 'modalTest',
+                element: <ModalTest></ModalTest>
             }
         ]
     }
