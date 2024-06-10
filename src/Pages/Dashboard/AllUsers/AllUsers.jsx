@@ -55,6 +55,25 @@ const AllUsers = () => {
             })
     }
 
+    // make user as a student
+
+    const handleMakeStudent = user => {
+        axiosSecure.patch(`/users/student/${user._id}`)
+            .then(res => {
+                console.log(res.data)
+                if (res.data.modifiedCount > 0) {
+                    refetch()
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "The user is now a Student",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
+    }
+
 
     // delete a user
 
@@ -197,6 +216,10 @@ const AllUsers = () => {
                                                                                     if (value === 'Tutor') {
                                                                                         handleMakeTutor(window.currentUser)
                                                                                     }
+                                                                                    if (value === 'Student') {
+                                                                                        handleMakeStudent(window.currentUser)
+                                                                                    }
+
                                                                                     document.getElementById('my_modal_1').close();
                                                                                 }}
                                                                             >
