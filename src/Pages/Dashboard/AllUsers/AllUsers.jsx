@@ -28,7 +28,26 @@ const AllUsers = () => {
                     Swal.fire({
                         position: "center",
                         icon: "success",
-                        title: "Your work has been saved",
+                        title: "The user is now an Admin",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
+    }
+
+    // make a user as a tutor
+
+    const handleMakeTutor = user => {
+        axiosSecure.patch(`/users/tutor/${user._id}`)
+            .then(res => {
+                console.log(res.data)
+                if (res.data.modifiedCount > 0) {
+                    refetch()
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "The user is now a Tutor",
                         showConfirmButton: false,
                         timer: 1500
                     });
@@ -174,6 +193,9 @@ const AllUsers = () => {
                                                                                     const value = document.getElementById('role').value;
                                                                                     if (value === 'Admin') {
                                                                                         handleMakeAdmin(window.currentUser);
+                                                                                    }
+                                                                                    if (value === 'Tutor') {
+                                                                                        handleMakeTutor(window.currentUser)
                                                                                     }
                                                                                     document.getElementById('my_modal_1').close();
                                                                                 }}
