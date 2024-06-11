@@ -10,6 +10,7 @@ import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Layout/Dashboard";
 import ModalTest from "../Pages/Dashboard/ModalTest";
+import CreateSession from "../Pages/Dashboard/CreateSessions/CreateSession";
 
 export const router = createBrowserRouter([
     {
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
             {
                 path: 'modalTest',
                 element: <ModalTest></ModalTest>
+            },
+            {
+                path: 'create-session',
+                element: <CreateSession></CreateSession>
             }
         ]
     }

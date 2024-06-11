@@ -3,7 +3,7 @@ import DashNav from "../Pages/Dashboard/DashNav/DashNav";
 
 const Dashboard = () => {
     return (
-        <div>
+        <div className="max-w-7xl mx-auto">
             <DashNav></DashNav>
             <Outlet></Outlet>
         </div>
