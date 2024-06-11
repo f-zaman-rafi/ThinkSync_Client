@@ -14,7 +14,7 @@ const SignIn = () => {
         handleSubmit,
         formState: { errors },
     } = useForm()
-    const { signIn, signInWithGoogle, signInWithGithub } = useAuth()
+    const { signIn, signInWithGoogle, signInWithGithub, updateUserProfile, setUser } = useAuth()
 
     const location = useLocation()
     const navigate = useNavigate()
@@ -39,25 +39,34 @@ const SignIn = () => {
             await signInWithGoogle()
                 .then(result => {
                     console.log(result.user)
-                    const userInfo = {
-                        email: result.user?.email,
-                        name: result.user?.displayName,
-                        role: "Student"
-                    }
-                    axiosCommon.post('/users', userInfo)
-                        .then(res => {
-                            console.log(res.data)
-                            const from = location.state?.from?.pathname || '/';
-                            navigate(from)
-                            toast.success('Sign-In with Google Successfully')
+                    const loggedUser = result.user;
+                    updateUserProfile(loggedUser.username)
+                        .then(() => {
+                            setUser({ ...loggedUser, role: 'Student' });
+                            const userInfo = {
+                                email: result.user?.email,
+                                name: result.user?.displayName,
+                                role: 'Student'
+                            }
+                            axiosCommon.post('/users', userInfo)
+                                .then(res => {
+                                    console.log(res.data);
+                                    console.log(userInfo);
+                                    const from = location?.state?.from?.pathname || '/';
+                                    navigate(from)
+                                    toast.success('Sign-In with Google Successfully')
+                                })
+
                         })
-                })
+                }
+                )
         }
         catch (error) {
             console.log(error)
             toast.error(error.message)
         }
     }
+
 
     // githubSignIn
 
@@ -66,25 +75,34 @@ const SignIn = () => {
             await signInWithGithub()
                 .then(result => {
                     console.log(result.user)
-                    const userInfo = {
-                        email: result.user?.email,
-                        name: result.user?.displayName,
-                        role: "Student"
-                    }
-                    axiosCommon.post('/users', userInfo)
-                        .then(res => {
-                            console.log(res.data)
-                            const from = location.state?.from?.pathname || '/';
-                            navigate(from)
-                            toast.success('Sign-In with Github Successfully')
+                    const loggedUser = result.user;
+                    updateUserProfile(loggedUser.username)
+                        .then(() => {
+                            setUser({ ...loggedUser, role: 'Student' });
+                            const userInfo = {
+                                email: result.user?.email,
+                                name: result.user?.displayName,
+                                role: 'Student'
+                            }
+                            axiosCommon.post('/users', userInfo)
+                                .then(res => {
+                                    console.log(res.data);
+                                    console.log(userInfo);
+                                    const from = location?.state?.from?.pathname || '/';
+                                    navigate(from)
+                                    toast.success('Sign-In with Github Successfully')
+                                })
+
                         })
-                })
+                }
+                )
         }
         catch (error) {
             console.log(error)
             toast.error(error.message)
         }
     }
+
 
 
 
