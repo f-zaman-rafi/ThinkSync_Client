@@ -1,5 +1,7 @@
 import { useForm } from "react-hook-form";
 import useAxiosCommon from "../../../Hooks/useAxiosCommon";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const CreateSession = () => {
 
@@ -9,16 +11,26 @@ const CreateSession = () => {
 
         formState: { errors },
     } = useForm()
+    const axiosCommon = useAxiosCommon();
+    const navigate = useNavigate()
 
-    const axiosCommon = useAxiosCommon()
+    const onSubmit = async (data) => {
+        try {
+            console.log(data);
+            const res = await axiosCommon.post('/sessions', data);
+            console.log(res);
+            if (res.data.insertedId) {
+                console.log('Data inserted into the database Successfully');
+                navigate('/');
+                toast.success('Session added successfully');
+            }
+        } catch (error) {
+            console.error('Error adding session:', error);
+            toast.error('Failed to add session');
+        }
+    };
 
-    const onSubmit = (data) => {
-        console.log(data)
-        const sessionData = data
-            .then(() => {
-                axiosCommon.post('/sessions')
-            })
-    }
+
     return (
         <div className="">
             <h1 className="text-5xl font-bold text-center pt-10">Create Session</h1>
@@ -132,8 +144,8 @@ const CreateSession = () => {
                         <label name="Status" className="label">
                             <span className="label-text">Status</span>
                         </label>
-                        <input type="text" defaultValue='Pending' disabled  {...register("Status", { required: "Status is require" })} placeholder="Status" className="input input-bordered" />
-                        {errors.Status?.type === 'required' && <span className="text-red-500 text-xs mt-2 ml-2">{errors.Status.message}</span>}
+                        <input type="text" value='Pending' readOnly {...register("Status")} placeholder="Status" className="input input-bordered" />
+
                     </div>
 
                 </div>
