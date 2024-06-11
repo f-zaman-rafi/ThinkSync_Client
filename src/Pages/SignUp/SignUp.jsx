@@ -65,25 +65,21 @@ const SignUp = () => {
             await signInWithGoogle()
                 .then(result => {
                     console.log(result.user)
-                    const loggedUser = result.user;
-                    updateUserProfile(loggedUser.username)
-                        .then(() => {
-                            setUser({ ...loggedUser, role: 'Student' });
-                            const userInfo = {
-                                email: result.user?.email,
-                                name: result.user?.displayName,
-                                role: 'Student'
-                            }
-                            axiosCommon.post('/users', userInfo)
-                                .then(res => {
-                                    console.log(res.data);
-                                    console.log(userInfo);
-                                    const from = location?.state?.from?.pathname || '/';
-                                    navigate(from)
-                                    toast.success('Sign-Up with Google Successfully')
-                                })
-
+                    const userInfo = {
+                        email: result.user?.email,
+                        name: result.user?.displayName,
+                        role: 'Student'
+                    }
+                    axiosCommon.post('/users', userInfo)
+                        .then(res => {
+                            console.log(res.data);
+                            console.log(userInfo);
+                            const from = location?.state?.from?.pathname || '/';
+                            navigate(from)
+                            toast.success('SignUp with Google Successfully')
                         })
+
+
                 }
                 )
         }
@@ -95,32 +91,25 @@ const SignUp = () => {
 
 
     // githubSignIn
+
     const handleGithubSignIn = async () => {
         try {
             await signInWithGithub()
                 .then(result => {
                     console.log(result.user)
-                    const loggedUser = result.user;
-                    updateUserProfile(loggedUser.username)
-                        .then(() => {
-                            setUser({ ...loggedUser, role: 'Student' });
-                            const userInfo = {
-                                email: result.user?.email,
-                                name: result.user?.displayName,
-                                role: 'Student'
-                            }
-                            axiosCommon.post('/users', userInfo)
-                                .then(res => {
-                                    console.log(res.data);
-                                    console.log(userInfo);
-                                    const from = location?.state?.from?.pathname || '/';
-                                    navigate(from)
-                                    toast.success('Sign-In with Github Successfully')
-                                })
-
+                    const userInfo = {
+                        email: result.user?.email,
+                        name: result.user?.displayName,
+                        role: "Student"
+                    }
+                    axiosCommon.post('/users', userInfo)
+                        .then(res => {
+                            console.log(res.data)
+                            const from = location.state?.from?.pathname || '/';
+                            navigate(from)
+                            toast.success('Sign-Up with Github Successfully')
                         })
-                }
-                )
+                })
         }
         catch (error) {
             console.log(error)

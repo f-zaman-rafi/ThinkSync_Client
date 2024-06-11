@@ -1,11 +1,43 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import useRole from "../../../Hooks/useRole";
+import LoadingSpinner from "../../Shared/LoadingSpinner/LoadingSpinner";
+// import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+// import { useQuery } from "@tanstack/react-query";
+// import LoadingSpinner from "../../Shared/LoadingSpinner/LoadingSpinner";
+// import useAuth from "../../../Hooks/useAuth";
 
 const DashNav = () => {
 
+
     const [isOpen, setIsOpen] = useState(false);
+    // const axiosSecure = useAxiosSecure();
+    // const { user } = useAuth();
+    // // const [showAll, setShowAll] = useState(false);
+    // // const maxVisibleSessions = 6;
+
+    // const { data: users = [], isLoading } = useQuery({
+    //     queryKey: ['users'],
+    //     queryFn: async () => {
+    //         const { data } = await axiosSecure.get(`/user?email=${user.email}`);
+    //         return data;
+    //     }
+    // });
+    // console.log(users);
+
+    // if (isLoading) return <LoadingSpinner />;
+
+
+    const { role, isLoading } = useRole();
+
+    if (isLoading) {
+        return <LoadingSpinner />
+    }
+
+
 
     const navLink = <>
+        <p>You are here as {role}</p>
         <Link to='modalTest'><p href="#" className="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">View Booked Session</p>
         </Link>
         <p href="#" className="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Create Note</p>

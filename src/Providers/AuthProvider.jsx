@@ -62,7 +62,7 @@ const AuthProvider = ({ children }) => {
     const updateUserProfile = (name, role) => {
         return updateProfile(auth.currentUser, {
             displayName: name,
-            Role: role,
+            role: role
         })
     }
     // Get token from server
