@@ -2,22 +2,25 @@ import { useState } from 'react'; // Added useState import
 import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from "../../../Shared/LoadingSpinner/LoadingSpinner";
 import StudySessionCard from "./StudySessionCard/StudySessionCard";
-import useAxiosCommon from "../../../../Hooks/useAxiosCommon";
+import useAxiosSecure from '../../../../Hooks/useAxiosSecure';
 
 const StudySessions = () => {
-    const axiosCommon = useAxiosCommon();
+    const axiosSecure = useAxiosSecure()
     const [showAll, setShowAll] = useState(false);
     const maxVisibleSessions = 6;
 
-    const { data: sessions = [], isLoading } = useQuery({
-        queryKey: ['sessions'],
+    const Status = "Approved";
+
+    const { data: sessions = {}, isLoading } = useQuery({
+        queryKey: ['session'],
         queryFn: async () => {
-            const { data } = await axiosCommon.get('/sessions');
+            const { data } = await axiosSecure.get(`/session/approved?status=${Status}`)
             return data;
         }
-    });
+    })
 
     if (isLoading) return <LoadingSpinner />;
+    console.log(sessions)
 
 
     const displayedSessions = showAll ? sessions : sessions.slice(0, maxVisibleSessions);

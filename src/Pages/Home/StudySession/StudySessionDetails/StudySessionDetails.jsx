@@ -15,22 +15,25 @@ const StudySessionDetails = () => {
         }
     })
 
+
+
+
     if (isLoading) return <LoadingSpinner />
 
-    const { sessionTitle, tutorName, averageRating, sessionDescription, registrationStartDate, registrationEndDate, classStartTime, classEndDate, sessionDuration, registrationFee } = session;
+    const { title, name, averageRating, description, Registration_Start, Registration_End, Class_Start, Class_End, duration, Fee } = session;
 
     return (
         <div className="py-32 max-w-5xl mx-auto">
-            <h1 className="text-white font-bold text-xl leading-loose">Session Title: {sessionTitle}</h1>
-            <h1 className="text-white font-bold text-xl leading-loose">Tutor Name: {tutorName}</h1>
+            <h1 className="text-white font-bold text-xl leading-loose">Session Title: {title}</h1>
+            <h1 className="text-white font-bold text-xl leading-loose">Tutor Name: {name}</h1>
             <h1 className="text-white font-bold text-xl leading-loose">Rating: {averageRating}</h1>
-            <h1 className="text-white font-bold text-xl leading-loose">Description: {sessionDescription}</h1>
-            <h1 className="text-white font-bold text-xl leading-loose">Session Start Date: {registrationStartDate}</h1>
-            <h1 className="text-white font-bold text-xl leading-loose">Session End Date: {registrationEndDate}</h1>
-            <h1 className="text-white font-bold text-xl leading-loose">Class Start Date: {classStartTime}</h1>
-            <h1 className="text-white font-bold text-xl leading-loose">Class End Date: {classEndDate}</h1>
-            <h1 className="text-white font-bold text-xl leading-loose">Duration: {sessionDuration}</h1>
-            <h1 className="text-white font-bold text-xl leading-loose">Registration Fee: {registrationFee}</h1>
+            <h1 className="text-white font-bold text-xl leading-loose">Description: {description}</h1>
+            <h1 className="text-white font-bold text-xl leading-loose">Session Start Date: {Registration_Start}</h1>
+            <h1 className="text-white font-bold text-xl leading-loose">Session End Date: {Registration_End}</h1>
+            <h1 className="text-white font-bold text-xl leading-loose">Class Start Date: {Class_Start}</h1>
+            <h1 className="text-white font-bold text-xl leading-loose">Class End Date: {Class_End}</h1>
+            <h1 className="text-white font-bold text-xl leading-loose">Duration: {duration}</h1>
+            <h1 className="text-white font-bold text-xl leading-loose">Registration Fee: {Fee}</h1>
             <div className="text-center"><button className="my-10 btn btn-warning btn-wide"  >Book Now!</button></div>
         </div>
     );

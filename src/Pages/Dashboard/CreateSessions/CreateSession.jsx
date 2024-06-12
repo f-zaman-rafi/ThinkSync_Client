@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import useAxiosCommon from "../../../Hooks/useAxiosCommon";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import useAuth from "../../../Hooks/useAuth";
 
 const CreateSession = () => {
 
@@ -11,8 +12,10 @@ const CreateSession = () => {
 
         formState: { errors },
     } = useForm()
+
     const axiosCommon = useAxiosCommon();
     const navigate = useNavigate()
+    const { user } = useAuth();
 
     const onSubmit = async (data) => {
         try {
@@ -54,7 +57,7 @@ const CreateSession = () => {
                         <label name="name" className="label">
                             <span className="label-text">Name</span>
                         </label>
-                        <input type="text"   {...register("name", { required: "name is require" })} placeholder="name" className="input input-bordered" />
+                        <input type="text" value={user.displayName} readOnly {...register("name", { required: "name is require" })} placeholder="name" className="input input-bordered" />
                         {errors.name?.type === 'required' && <span className="text-red-500 text-xs mt-2 ml-2">{errors.name.message}</span>}
                     </div>
 
@@ -64,7 +67,7 @@ const CreateSession = () => {
                         <label name="email" className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input type="email"   {...register("email", { required: "email is require" })} placeholder="email" className="input input-bordered" />
+                        <input type="email" value={user.email} readOnly {...register("email", { required: "email is require" })} placeholder="email" className="input input-bordered" />
                         {errors.email?.type === 'required' && <span className="text-red-500 text-xs mt-2 ml-2">{errors.email.message}</span>}
                     </div>
 
@@ -134,7 +137,7 @@ const CreateSession = () => {
                         <label name="Fee" className="label">
                             <span className="label-text">Fee</span>
                         </label>
-                        <input type="text"   {...register("Fee", { required: "Fee is require" })} placeholder="Fee" className="input input-bordered" />
+                        <input type="number" readOnly value='0'  {...register("Fee", { required: "Fee is require" })} placeholder="Fee" className="input input-bordered" />
                         {errors.Fee?.type === 'required' && <span className="text-red-500 text-xs mt-2 ml-2">{errors.Fee.message}</span>}
                     </div>
 

@@ -10,22 +10,26 @@ const TutorSection = () => {
             const { data } = await axiosCommon.get('/sessions');
             return data;
         }
-    })
-    if (isLoading) return <LoadingSpinner />
+    });
+
+    if (isLoading) return <LoadingSpinner />;
+
+    // Filter out duplicate tutor names
+    const uniqueTutors = Array.from(new Set(tutors.map(tutor => tutor.name)));
+
     return (
         <div>
             <h1 className="text-center font-bold text-5xl">Tutors</h1>
             <div className="grid grid-cols-3 gap-5 max-w-5xl mx-auto my-20">
-                {
-                    tutors.map(tutor => (
-                        <div key={tutor._id}>
-                            <div className="card w-72 glass">
-                                <div className="card-body">
-                                    <h2 className="card-title">{tutor.tutorName}</h2>
-                                </div>
+                {uniqueTutors.map(tutorName => (
+                    <div key={tutorName}>
+                        <div className="card w-72 glass">
+                            <div className="card-body">
+                                <h2 className="card-title">{tutorName}</h2>
                             </div>
-                        </div>))
-                }
+                        </div>
+                    </div>
+                ))}
             </div>
         </div>
     );

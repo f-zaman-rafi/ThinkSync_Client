@@ -11,6 +11,9 @@ import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Layout/Dashboard";
 import ModalTest from "../Pages/Dashboard/ModalTest";
 import CreateSession from "../Pages/Dashboard/CreateSessions/CreateSession";
+import AllStudySessions from "../Pages/Dashboard/AllStudySessionByTutor.jsx/AllStudySessions";
+import AdminRoute from "./AdminRoute";
+import AllSessionsDash from "../Pages/Dashboard/AllSessionsDash/AllSessionsDash";
 
 export const router = createBrowserRouter([
     {
@@ -37,11 +40,18 @@ export const router = createBrowserRouter([
     },
     {
         path: "dashboard",
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
+
+            // Admin Routes
+
             {
                 path: "all-users",
-                element: <AllUsers></AllUsers>
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+            },
+            {
+                path: 'all-sessions-dash',
+                element: <AdminRoute><AllSessionsDash></AllSessionsDash></AdminRoute>
             },
             {
                 path: 'modalTest',
@@ -50,7 +60,11 @@ export const router = createBrowserRouter([
             {
                 path: 'create-session',
                 element: <CreateSession></CreateSession>
-            }
+            },
+            {
+                path: 'sessions-by-tutor',
+                element: <AllStudySessions></AllStudySessions>
+            },
         ]
     }
 ]);

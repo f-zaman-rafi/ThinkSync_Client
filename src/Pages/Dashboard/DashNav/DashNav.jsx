@@ -11,22 +11,6 @@ const DashNav = () => {
 
 
     const [isOpen, setIsOpen] = useState(false);
-    // const axiosSecure = useAxiosSecure();
-    // const { user } = useAuth();
-    // // const [showAll, setShowAll] = useState(false);
-    // // const maxVisibleSessions = 6;
-
-    // const { data: users = [], isLoading } = useQuery({
-    //     queryKey: ['users'],
-    //     queryFn: async () => {
-    //         const { data } = await axiosSecure.get(`/user?email=${user.email}`);
-    //         return data;
-    //     }
-    // });
-    // console.log(users);
-
-    // if (isLoading) return <LoadingSpinner />;
-
 
     const { role, isLoading } = useRole();
 
@@ -37,34 +21,54 @@ const DashNav = () => {
 
 
     const navLink = <>
-        <p>You are here as {role}</p>
-        <Link to='modalTest'><p href="#" className="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">View Booked Session</p>
-        </Link>
-        <p href="#" className="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Create Note</p>
-        <p href="#" className="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Manage Personal notes</p>
-        <p href="#" className="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">View all study materials</p>
+        {
+            role === 'Student' ?
+                <>
+                    <Link to='modalTest'><p href="#" className="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">View Booked Session</p>
+                    </Link>
+                    <p href="#" className="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Create Note</p>
+                    <p href="#" className="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Manage Personal notes</p>
+                    <p href="#" className="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">View all study materials</p>
 
+                </>
+                :
+                ''
+        }
         {/* Tutor Section */}
 
-        <Link to='create-session'><p href="#" className="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Create Study Session</p>
-        </Link>
-        <p href="#" className="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">View all study sessions created by a tutor</p>
-        <p href="#" className="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Upload Materials</p>
-        <p href="#" className="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">View all materials</p>
+        {
+            role === 'Tutor' ?
+                <>
+                    <Link to='create-session'><p href="#" className="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Create Study Session</p>
+                    </Link>
+                    <Link to='sessions-by-tutor'><p href="#" className="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">View all study sessions</p></Link>
+                    <p href="#" className="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">Upload Materials</p>
+                    <p href="#" className="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">View all materials</p>
 
+                </>
+                :
+                ''
+        }
         {/* Admin Section */}
 
-        <Link to='all-users'><p href="#" className="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">View all users</p></Link>
-        <p href="#" className="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">View all study sessions</p>
-        <p href="#" className="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">View all materials</p>
+        {
+            role === 'Admin' ?
+                <>
+                    <Link to='all-users'><p href="#" className="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">View all users</p></Link>
+                    <Link to='all-sessions-dash'><p href="#" className="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">View all study sessions</p></Link>
+                    <p href="#" className="px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 md:mx-2">View all materials</p>
 
+                </>
+                :
+                ''
+        }
     </>
 
     return (
         <nav className="relative bg-white shadow dark:bg-gray-800">
             <div className="container px-6 py-3 mx-auto md:flex">
                 <div className="flex items-center justify-between">
-                    <p className="text-3xl font-bold text-gray-50">Dashboard <Link to='/'><span className="text-xs font-extralight">Home</span></Link></p>
+                    <p className="text-3xl font-bold text-gray-50">Dashboard <div className="flex justify-between my-4 items-center text-center"><Link to='/'><span className="text-xs rounded-full border-blue-300 border-2 px-4 py-1 font-extralight">Home</span></Link><span className="text-xs font-extralight rounded-full border-red-500 border-2 px-4 py-1">{role}</span></div></p>
 
                     {/* Mobile menu button */}
                     <div className="flex lg:hidden">
@@ -95,8 +99,8 @@ const DashNav = () => {
                         <input type="text" className="w-full py-2 pl-10 pr-4 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-blue-300" placeholder="Search" />
                     </div>
                 </div>
-            </div>
-        </nav>
+            </div >
+        </nav >
     );
 };
 
