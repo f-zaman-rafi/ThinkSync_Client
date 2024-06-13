@@ -15,6 +15,10 @@ import AllStudySessions from "../Pages/Dashboard/AllStudySessionByTutor.jsx/AllS
 import AdminRoute from "./AdminRoute";
 import AllSessionsDash from "../Pages/Dashboard/AllSessionsDash/AllSessionsDash";
 import EditSession from "../Pages/Dashboard/EditSession/EditSession";
+import UploadMaterials from "../Pages/Dashboard/UploadMaterials/UploadMaterials";
+import UploadSelection from "../Pages/Dashboard/UploadMaterials/UploadSelection";
+import MaterialsByTutor from "../Pages/Dashboard/ViewAllMaterialsByTutor/MaterialsByTutor";
+import UpdateMaterials from "../Pages/Dashboard/UpdateMaterials/UpdateMaterials";
 
 export const router = createBrowserRouter([
     {
@@ -69,6 +73,22 @@ export const router = createBrowserRouter([
             {
                 path: 'sessions-by-tutor',
                 element: <AllStudySessions></AllStudySessions>
+            },
+            {
+                path: 'upload-materials',
+                element: <UploadMaterials></UploadMaterials>
+            },
+            {
+                path: 'upload-selection/:id',
+                element: <UploadSelection></UploadSelection>
+            },
+            {
+                path: 'material',
+                element: <MaterialsByTutor />
+            },
+            {
+                path: 'update-materials/:id',
+                element: <UpdateMaterials />
             },
         ]
     }
