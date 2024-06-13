@@ -8,7 +8,7 @@ const StudySessionDetails = () => {
     const axiosCommon = useAxiosCommon()
 
     const { data: session = {}, isLoading } = useQuery({
-        queryKey: ['room', id],
+        queryKey: ['session', id],
         queryFn: async () => {
             const { data } = await axiosCommon.get(`/sessions/${id}`)
             return data

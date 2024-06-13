@@ -161,8 +161,9 @@ const AllStudySessions = () => {
                                                                                     id="status"
                                                                                     className="select w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                                                                                 >
-                                                                                    <option value="" selected disabled>Pick an option</option>
-                                                                                    <option value="Pending">Request Again</option>
+                                                                                    {/* <option value="" selected disabled>Pick an option</option> */}
+                                                                                    <option selected value="Pending">Request Again</option>
+                                                                                    {/* <option value="Pending">Request Again</option> */}
 
                                                                                 </select>
                                                                             </div>

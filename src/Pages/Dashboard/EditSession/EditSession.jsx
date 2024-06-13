@@ -1,10 +1,11 @@
 import { useForm } from "react-hook-form";
-import useAxiosCommon from "../../../Hooks/useAxiosCommon";
+import { useNavigate, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
-import useAuth from "../../../Hooks/useAuth";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import LoadingSpinner from "../../Shared/LoadingSpinner/LoadingSpinner";
 
-const CreateSession = () => {
+const EditSession = () => {
 
     const {
         register,
@@ -13,28 +14,55 @@ const CreateSession = () => {
         formState: { errors },
     } = useForm()
 
-    const axiosCommon = useAxiosCommon();
+    const axiosSecure = useAxiosSecure();
     const navigate = useNavigate()
-    const { user } = useAuth();
+
+    const { id } = useParams()
+
+    const { data: session = [], isLoading } = useQuery({
+        queryKey: ['session', id],
+        queryFn: async () => {
+            const { data } = await axiosSecure.get(`sessions/${id}`)
+            return data
+        }
+    })
+
+    if (isLoading) return <LoadingSpinner />
+
+    const { title, name, email, description, Registration_Start, Registration_End, Class_Start, Class_End, duration, Fee } = session;
+
+
 
     const onSubmit = async (data) => {
         try {
             console.log(data);
-            const res = await axiosCommon.post('/sessions', data);
-            console.log(res);
-            if (res.data.insertedId) {
-                console.log('Data inserted into the database Successfully');
+            const { description, Registration_Start, Registration_End, Class_Start, Class_End, duration, Fee } = data;
+            const requestData = {
+                description: description,
+                Registration_Start: Registration_Start,
+                Registration_End: Registration_End,
+                Class_Start: Class_Start,
+                Class_End: Class_End,
+                duration: duration,
+                Fee: Fee
+            };
+            const res = await axiosSecure.patch(`/sessions/edited/${session._id}`, requestData);
+            console.log(res.data)
+            if (res.data === "Session Edited successfully") {
+                console.log('Data updated in the database Successfully');
+                toast.success('Session updated successfully');
                 navigate('/dashboard');
-                toast.success('Session added successfully');
             }
         } catch (error) {
-            console.error('Error adding session:', error);
-            toast.error('Failed to add session');
+            console.error('Error updating session:', error);
+            toast.error('Failed to update session');
         }
     };
 
 
+
     return (
+
         <div className="">
             <h1 className="text-5xl font-bold text-center pt-10">Create Session</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -47,7 +75,7 @@ const CreateSession = () => {
                         <label name="title" className="label">
                             <span className="label-text">Title</span>
                         </label>
-                        <input type="text"   {...register("title", { required: "Title is require" })} placeholder="title" className="input input-bordered" />
+                        <input type="text" defaultValue={title} {...register("title", { required: "Title is require" })} placeholder="title" className="input input-bordered" />
                         {errors.title?.type === 'required' && <span className="text-red-500 text-xs mt-2 ml-2">{errors.title.message}</span>}
                     </div>
 
@@ -57,7 +85,7 @@ const CreateSession = () => {
                         <label name="name" className="label">
                             <span className="label-text">Name</span>
                         </label>
-                        <input type="text" value={user.displayName} readOnly {...register("name", { required: "name is require" })} placeholder="name" className="input input-bordered" />
+                        <input type="text" value={name} readOnly {...register("name", { required: "name is require" })} placeholder="name" className="input input-bordered" />
                         {errors.name?.type === 'required' && <span className="text-red-500 text-xs mt-2 ml-2">{errors.name.message}</span>}
                     </div>
 
@@ -67,7 +95,7 @@ const CreateSession = () => {
                         <label name="email" className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input type="email" value={user.email} readOnly {...register("email", { required: "email is require" })} placeholder="email" className="input input-bordered" />
+                        <input type="email" value={email} readOnly {...register("email", { required: "email is require" })} placeholder="email" className="input input-bordered" />
                         {errors.email?.type === 'required' && <span className="text-red-500 text-xs mt-2 ml-2">{errors.email.message}</span>}
                     </div>
 
@@ -77,7 +105,7 @@ const CreateSession = () => {
                         <label name="description" className="label">
                             <span className="label-text">Description</span>
                         </label>
-                        <input type="text"   {...register("description", { required: "description is require" })} placeholder="description" className="input input-bordered" />
+                        <input type="text" defaultValue={description}   {...register("description", { required: "description is require" })} placeholder="description" className="input input-bordered" />
                         {errors.description?.type === 'required' && <span className="text-red-500 text-xs mt-2 ml-2">{errors.description.message}</span>}
                     </div>
 
@@ -87,7 +115,7 @@ const CreateSession = () => {
                         <label name="Registration_Start" className="label">
                             <span className="label-text">Registration_Start</span>
                         </label>
-                        <input type="date"   {...register("Registration_Start", { required: "Registration_Start is require" })} placeholder="Registration_Start" className="input input-bordered" />
+                        <input type="date" defaultValue={Registration_Start}  {...register("Registration_Start", { required: "Registration_Start is require" })} placeholder="Registration_Start" className="input input-bordered" />
                         {errors.Registration_Start?.type === 'required' && <span className="text-red-500 text-xs mt-2 ml-2">{errors.Registration_Start.message}</span>}
                     </div>
 
@@ -97,7 +125,7 @@ const CreateSession = () => {
                         <label name="Registration_End" className="label">
                             <span className="label-text">Registration_End</span>
                         </label>
-                        <input type="date"   {...register("Registration_End", { required: "Registration_End is require" })} placeholder="Registration_End" className="input input-bordered" />
+                        <input type="date" defaultValue={Registration_End} {...register("Registration_End", { required: "Registration_End is require" })} placeholder="Registration_End" className="input input-bordered" />
                         {errors.Registration_End?.type === 'required' && <span className="text-red-500 text-xs mt-2 ml-2">{errors.Registration_End.message}</span>}
                     </div>
 
@@ -107,7 +135,7 @@ const CreateSession = () => {
                         <label name="Class_Start" className="label">
                             <span className="label-text">Class_Start</span>
                         </label>
-                        <input type="date"   {...register("Class_Start", { required: "Class_Start is require" })} placeholder="Class_Start" className="input input-bordered" />
+                        <input type="date" defaultValue={Class_Start} {...register("Class_Start", { required: "Class_Start is require" })} placeholder="Class_Start" className="input input-bordered" />
                         {errors.Class_Start?.type === 'required' && <span className="text-red-500 text-xs mt-2 ml-2">{errors.Class_Start.message}</span>}
                     </div>
 
@@ -117,7 +145,7 @@ const CreateSession = () => {
                         <label name="Class_End" className="label">
                             <span className="label-text">Class_End</span>
                         </label>
-                        <input type="date"   {...register("Class_End", { required: "Class_End is require" })} placeholder="Class_End" className="input input-bordered" />
+                        <input type="date" defaultValue={Class_End}  {...register("Class_End", { required: "Class_End is require" })} placeholder="Class_End" className="input input-bordered" />
                         {errors.Class_End?.type === 'required' && <span className="text-red-500 text-xs mt-2 ml-2">{errors.Class_End.message}</span>}
                     </div>
 
@@ -127,7 +155,7 @@ const CreateSession = () => {
                         <label name="duration" className="label">
                             <span className="label-text">Duration</span>
                         </label>
-                        <input type="text"   {...register("duration", { required: "duration is require" })} placeholder="duration" className="input input-bordered" />
+                        <input type="text" defaultValue={duration}  {...register("duration", { required: "duration is require" })} placeholder="duration" className="input input-bordered" />
                         {errors.duration?.type === 'required' && <span className="text-red-500 text-xs mt-2 ml-2">{errors.duration.message}</span>}
                     </div>
 
@@ -137,19 +165,11 @@ const CreateSession = () => {
                         <label name="Fee" className="label">
                             <span className="label-text">Fee</span>
                         </label>
-                        <input type="number" readOnly value='0'  {...register("Fee", { required: "Fee is require" })} placeholder="Fee" className="input input-bordered" />
+                        <input type="number" defaultValue={Fee}  {...register("Fee", { required: "Fee is require" })} placeholder="Fee" className="input input-bordered" />
                         {errors.Fee?.type === 'required' && <span className="text-red-500 text-xs mt-2 ml-2">{errors.Fee.message}</span>}
                     </div>
 
-                    {/* Status */}
 
-                    <div className="form-control">
-                        <label name="Status" className="label">
-                            <span className="label-text">Status</span>
-                        </label>
-                        <input type="text" value='Pending' readOnly {...register("Status")} placeholder="Status" className="input input-bordered" />
-
-                    </div>
 
                 </div>
 
@@ -159,22 +179,7 @@ const CreateSession = () => {
     );
 };
 
-export default CreateSession;
+export default EditSession;
 
 
 
-// 13.( Create study session ) Tutor will create a session with the following
-// fields:
-// a. Session Title
-// b. Tutor name read-only ( Logged in user name )
-// c. Tutor email read-only ( Logged in user email)
-// d. session Description
-// e. Registration start date
-// f. Registration end date
-// g. Class start date
-// h. Class end date
-// i. Session duration
-// j. Registration fee read-only ( default 0 ) ( only admin can
-// modify this field, just set it to 0 )
-// k. Status ( default pending )
-// l. Any other necessary info if you need

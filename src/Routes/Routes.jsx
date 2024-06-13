@@ -14,6 +14,7 @@ import CreateSession from "../Pages/Dashboard/CreateSessions/CreateSession";
 import AllStudySessions from "../Pages/Dashboard/AllStudySessionByTutor.jsx/AllStudySessions";
 import AdminRoute from "./AdminRoute";
 import AllSessionsDash from "../Pages/Dashboard/AllSessionsDash/AllSessionsDash";
+import EditSession from "../Pages/Dashboard/EditSession/EditSession";
 
 export const router = createBrowserRouter([
     {
@@ -52,6 +53,10 @@ export const router = createBrowserRouter([
             {
                 path: 'all-sessions-dash',
                 element: <AdminRoute><AllSessionsDash></AllSessionsDash></AdminRoute>
+            },
+            {
+                path: 'all-sessions-dash/:id',
+                element: <AdminRoute><EditSession></EditSession></AdminRoute>
             },
             {
                 path: 'modalTest',
