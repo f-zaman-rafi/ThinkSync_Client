@@ -2,21 +2,31 @@ import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from "../../Shared/LoadingSpinner/LoadingSpinner";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { useEffect, useMemo, useState } from "react";
+import debounce from 'lodash/debounce';
 
 const AllUsers = () => {
     const axiosSecure = useAxiosSecure();
-    // const [showAll, setShowAll] = useState(false);
-    // const maxVisibleSessions = 6;
+    const [searchQuery, setSearchQuery] = useState('');
 
     const { data: users = [], refetch, isLoading } = useQuery({
-        queryKey: ['users'],
-        queryFn: async () => {
-            const { data } = await axiosSecure.get('/users');
-            return data;
+        queryKey: ['users', searchQuery],
+        queryFn: async ({ queryKey }) => {
+            const [, searchQuery] = queryKey;
+            if (searchQuery) {
+                const { data } = await axiosSecure.get('/user/search', {
+                    params: {
+                        name: searchQuery,
+                        email: searchQuery
+                    }
+                });
+                return data;
+            } else {
+                const { data } = await axiosSecure.get('/users');
+                return data;
+            }
         }
     });
-    if (isLoading) return <LoadingSpinner />;
-
 
     // make a user as an admin
     const handleMakeAdmin = user => {
@@ -37,7 +47,6 @@ const AllUsers = () => {
     }
 
     // make a user as a tutor
-
     const handleMakeTutor = user => {
         axiosSecure.patch(`/users/tutor/${user._id}`)
             .then(res => {
@@ -56,7 +65,6 @@ const AllUsers = () => {
     }
 
     // make user as a student
-
     const handleMakeStudent = user => {
         axiosSecure.patch(`/users/student/${user._id}`)
             .then(res => {
@@ -74,9 +82,7 @@ const AllUsers = () => {
             })
     }
 
-
     // delete a user
-
     const handleDeleteUser = user => {
         Swal.fire({
             title: "Are you sure?",
@@ -99,18 +105,47 @@ const AllUsers = () => {
                             })
                         }
                     });
-
             }
         });
     }
+
+    const handleSearchChange = (e) => {
+        setSearchQuery(e.target.value);
+    };
+
+    const debouncedHandleSearch = useMemo(
+        () => debounce(handleSearchChange, 300),
+        []
+    );
+
+    // Cleanup the debounce function on unmount
+    useEffect(() => {
+        return () => {
+            debouncedHandleSearch.cancel();
+        };
+    }, [debouncedHandleSearch]);
+
+    if (isLoading) return <LoadingSpinner />;
+
     return (
         <div className="my-12">
             <section className="container px-4 mx-auto">
                 <div className="flex items-center gap-x-3">
                     <h2 className="text-lg font-medium text-gray-800 dark:text-white">Total Users</h2>
-
                     <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400">{users.length} users</span>
                 </div>
+
+                <div className="flex items-center mt-4">
+                    <input
+                        type="text"
+                        name="search"
+
+                        onChange={debouncedHandleSearch}
+                        className="w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                        placeholder="Search by name or email"
+                    />
+                </div>
+
 
                 <div className="flex flex-col mt-6">
                     <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
