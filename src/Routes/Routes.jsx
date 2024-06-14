@@ -19,6 +19,7 @@ import UploadMaterials from "../Pages/Dashboard/UploadMaterials/UploadMaterials"
 import UploadSelection from "../Pages/Dashboard/UploadMaterials/UploadSelection";
 import MaterialsByTutor from "../Pages/Dashboard/ViewAllMaterialsByTutor/MaterialsByTutor";
 import UpdateMaterials from "../Pages/Dashboard/UpdateMaterials/UpdateMaterials";
+import ViewAllMaterialsByAdmin from "../Pages/Dashboard/ViewAllMaterialsByAdmin/ViewAllMaterialsByAdmin";
 
 export const router = createBrowserRouter([
     {
@@ -90,6 +91,11 @@ export const router = createBrowserRouter([
                 path: 'update-materials/:id',
                 element: <UpdateMaterials />
             },
+            {
+                path: 'all-materials-admin',
+                element: <ViewAllMaterialsByAdmin />
+
+            }
         ]
     }
 ]);
