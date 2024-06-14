@@ -125,6 +125,11 @@ const AllUsers = () => {
         };
     }, [debouncedHandleSearch]);
 
+    // const filteredUsers = users.filter(user =>
+    //     user.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    //     user.email.toLowerCase().includes(searchQuery.toLowerCase())
+    // );
+
     if (isLoading) return <LoadingSpinner />;
 
     return (
@@ -135,14 +140,13 @@ const AllUsers = () => {
                     <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400">{users.length} users</span>
                 </div>
 
-                <div className="flex items-center mt-4">
+                <div className="flex items-center gap-x-3 mb-4">
                     <input
                         type="text"
-                        name="search"
-
-                        onChange={debouncedHandleSearch}
-                        className="w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                         placeholder="Search by name or email"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        className="input input-bordered w-full max-w-xs"
                     />
                 </div>
 

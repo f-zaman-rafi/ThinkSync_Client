@@ -9,7 +9,6 @@ import SignIn from "../Pages/SignIn/SignIn";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Layout/Dashboard";
-import ModalTest from "../Pages/Dashboard/ModalTest";
 import CreateSession from "../Pages/Dashboard/CreateSessions/CreateSession";
 import AllStudySessions from "../Pages/Dashboard/AllStudySessionByTutor.jsx/AllStudySessions";
 import AdminRoute from "./AdminRoute";
@@ -20,6 +19,7 @@ import UploadSelection from "../Pages/Dashboard/UploadMaterials/UploadSelection"
 import MaterialsByTutor from "../Pages/Dashboard/ViewAllMaterialsByTutor/MaterialsByTutor";
 import UpdateMaterials from "../Pages/Dashboard/UpdateMaterials/UpdateMaterials";
 import ViewAllMaterialsByAdmin from "../Pages/Dashboard/ViewAllMaterialsByAdmin/ViewAllMaterialsByAdmin";
+import ViewBookedSession from "../Pages/Dashboard/BookedSession/ViewBookedSession";
 
 export const router = createBrowserRouter([
     {
@@ -64,8 +64,8 @@ export const router = createBrowserRouter([
                 element: <AdminRoute><EditSession></EditSession></AdminRoute>
             },
             {
-                path: 'modalTest',
-                element: <ModalTest></ModalTest>
+                path: 'booked-session',
+                element: <ViewBookedSession />
             },
             {
                 path: 'create-session',
