@@ -11,7 +11,6 @@ const AllStudySessions = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
 
-
     const { data: sessionData = {}, isLoading, refetch } = useQuery({
         queryKey: ['sessionData'],
         queryFn: async () => {

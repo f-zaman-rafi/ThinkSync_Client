@@ -23,6 +23,8 @@ import ViewBookedSession from "../Pages/Dashboard/BookedSession/ViewBookedSessio
 import CreateNote from "../Pages/Dashboard/CreateNote/CreateNote";
 import PersonalNotes from "../Pages/Dashboard/PersonalNotes/PersonalNotes";
 import UpdateNote from "../Pages/Dashboard/UpdateNote/UpdateNote";
+import StudyMaterials from "../Pages/Dashboard/StudyMaterials/StudyMaterials";
+import ReviewAndRating from "../Pages/Dashboard/ReviewAndRating/ReviewAndRating";
 
 export const router = createBrowserRouter([
     {
@@ -110,6 +112,14 @@ export const router = createBrowserRouter([
             {
                 path: 'update-note/:id',
                 element: <UpdateNote />
+            },
+            {
+                path: 'study-materials',
+                element: <StudyMaterials />
+            },
+            {
+                path: 'review-rating/:id',
+                element: <ReviewAndRating />
             }
         ]
     }
