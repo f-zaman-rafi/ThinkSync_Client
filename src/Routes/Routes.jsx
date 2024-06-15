@@ -22,6 +22,7 @@ import ViewAllMaterialsByAdmin from "../Pages/Dashboard/ViewAllMaterialsByAdmin/
 import ViewBookedSession from "../Pages/Dashboard/BookedSession/ViewBookedSession";
 import CreateNote from "../Pages/Dashboard/CreateNote/CreateNote";
 import PersonalNotes from "../Pages/Dashboard/PersonalNotes/PersonalNotes";
+import UpdateNote from "../Pages/Dashboard/UpdateNote/UpdateNote";
 
 export const router = createBrowserRouter([
     {
@@ -105,6 +106,10 @@ export const router = createBrowserRouter([
             {
                 path: 'personal-note',
                 element: <PersonalNotes />
+            },
+            {
+                path: 'update-note/:id',
+                element: <UpdateNote />
             }
         ]
     }

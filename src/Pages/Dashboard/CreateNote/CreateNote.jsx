@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const CreateNote = () => {
     const {
@@ -11,11 +12,13 @@ const CreateNote = () => {
     } = useForm();
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure()
+    const navigate = useNavigate()
     const onSubmit = async (data) => {
         console.log(data)
         try {
             const res = await axiosSecure.post('/note', data);
             if (res.data.insertedId) {
+                navigate('/dashboard/personal-note')
                 toast.success('Note created successfully!');
             } else {
                 toast.error('Failed to create note.');
