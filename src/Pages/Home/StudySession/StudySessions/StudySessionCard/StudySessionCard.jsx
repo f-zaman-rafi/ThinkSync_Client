@@ -11,7 +11,7 @@ const StudySessionCard = ({ session }) => {
                     <h2 className="card-title py-5">{title}</h2>
                     <p className="leading-loose ">{description}</p>
                     <div className="card-actions justify-end">
-                        <Link to={`sessions/${_id}`}><button className="btn btn-primary">Read More</button></Link>
+                        <Link to={`/sessions/${_id}`}><button className="btn btn-primary">Read More</button></Link>
                     </div>
                 </div>
             </div>

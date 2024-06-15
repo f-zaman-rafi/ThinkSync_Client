@@ -44,7 +44,7 @@ const ViewBookedSession = () => {
                                     <h2 className="card-title py-5">{session.title}</h2>
                                     <p className="leading-loose ">{session.description}</p>
                                     <div className="card-actions justify-end">
-                                        <Link to={`sessions/${session._id}`}><button className="btn btn-primary">Read More</button></Link>
+                                        <Link to={`/sessions/${session.session_id}`}><button className="btn btn-primary">Read More</button></Link>
                                     </div>
                                 </div>
                             </div>

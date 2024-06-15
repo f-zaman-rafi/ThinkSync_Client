@@ -20,6 +20,8 @@ import MaterialsByTutor from "../Pages/Dashboard/ViewAllMaterialsByTutor/Materia
 import UpdateMaterials from "../Pages/Dashboard/UpdateMaterials/UpdateMaterials";
 import ViewAllMaterialsByAdmin from "../Pages/Dashboard/ViewAllMaterialsByAdmin/ViewAllMaterialsByAdmin";
 import ViewBookedSession from "../Pages/Dashboard/BookedSession/ViewBookedSession";
+import CreateNote from "../Pages/Dashboard/CreateNote/CreateNote";
+import PersonalNotes from "../Pages/Dashboard/PersonalNotes/PersonalNotes";
 
 export const router = createBrowserRouter([
     {
@@ -95,6 +97,14 @@ export const router = createBrowserRouter([
                 path: 'all-materials-admin',
                 element: <ViewAllMaterialsByAdmin />
 
+            },
+            {
+                path: 'create-note',
+                element: <CreateNote />
+            },
+            {
+                path: 'personal-note',
+                element: <PersonalNotes />
             }
         ]
     }
