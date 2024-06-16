@@ -25,6 +25,9 @@ import PersonalNotes from "../Pages/Dashboard/PersonalNotes/PersonalNotes";
 import UpdateNote from "../Pages/Dashboard/UpdateNote/UpdateNote";
 import StudyMaterials from "../Pages/Dashboard/StudyMaterials/StudyMaterials";
 import ReviewAndRating from "../Pages/Dashboard/ReviewAndRating/ReviewAndRating";
+import StudentRoute from "./StudentRoute";
+import TutorRoute from "./TutorRoute";
+import Payment from "../Pages/Home/StudySession/StudySessionDetails/Payment";
 
 export const router = createBrowserRouter([
     {
@@ -46,6 +49,10 @@ export const router = createBrowserRouter([
             {
                 path: '/sign-in',
                 element: <SignIn></SignIn>
+            },
+            {
+                path: '/payment',
+                element: <Payment></Payment>
             }
         ]
     },
@@ -69,58 +76,66 @@ export const router = createBrowserRouter([
                 element: <AdminRoute><EditSession></EditSession></AdminRoute>
             },
             {
-                path: 'booked-session',
-                element: <ViewBookedSession />
+                path: 'all-materials-admin',
+                element: <AdminRoute><ViewAllMaterialsByAdmin /></AdminRoute>
+
             },
+
+            // Student Route
+
+            {
+                path: 'booked-session',
+                element: <StudentRoute><ViewBookedSession /></StudentRoute>
+            },
+            {
+                path: 'create-note',
+                element: <StudentRoute><CreateNote /></StudentRoute>
+            },
+            {
+                path: 'personal-note',
+                element: <StudentRoute><PersonalNotes /></StudentRoute>
+            },
+            {
+                path: 'update-note/:id',
+                element: <StudentRoute><UpdateNote /></StudentRoute>
+            },
+            {
+                path: 'study-materials',
+                element: <StudentRoute><StudyMaterials /></StudentRoute>
+            },
+            {
+                path: 'review-rating/:id',
+                element: <StudentRoute><ReviewAndRating /></StudentRoute>
+            },
+
+            // Tutor Route
             {
                 path: 'create-session',
-                element: <CreateSession></CreateSession>
+                element: <TutorRoute><CreateSession></CreateSession></TutorRoute>
             },
+
             {
                 path: 'sessions-by-tutor',
-                element: <AllStudySessions></AllStudySessions>
+                element: <TutorRoute><AllStudySessions></AllStudySessions></TutorRoute>
             },
             {
                 path: 'upload-materials',
-                element: <UploadMaterials></UploadMaterials>
+                element: <TutorRoute><UploadMaterials></UploadMaterials></TutorRoute>
             },
             {
                 path: 'upload-selection/:id',
-                element: <UploadSelection></UploadSelection>
+                element: <TutorRoute><UploadSelection></UploadSelection></TutorRoute>
             },
             {
                 path: 'material',
-                element: <MaterialsByTutor />
+                element: <TutorRoute><MaterialsByTutor /></TutorRoute>
             },
             {
                 path: 'update-materials/:id',
                 element: <UpdateMaterials />
             },
-            {
-                path: 'all-materials-admin',
-                element: <ViewAllMaterialsByAdmin />
 
-            },
-            {
-                path: 'create-note',
-                element: <CreateNote />
-            },
-            {
-                path: 'personal-note',
-                element: <PersonalNotes />
-            },
-            {
-                path: 'update-note/:id',
-                element: <UpdateNote />
-            },
-            {
-                path: 'study-materials',
-                element: <StudyMaterials />
-            },
-            {
-                path: 'review-rating/:id',
-                element: <ReviewAndRating />
-            }
+
         ]
     }
 ]);

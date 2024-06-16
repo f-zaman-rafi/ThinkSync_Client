@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from "../../../Shared/LoadingSpinner/LoadingSpinner";
 import useAxiosCommon from "../../../../Hooks/useAxiosCommon";
@@ -137,8 +137,7 @@ const StudySessionDetails = () => {
                         {review.session_id === _id && (
                             <div className="border-2 p-5">
                                 <p>Student: {review.studentName}</p>
-                                <p>Rating: {review.rating}</p>
-                                <p>Review: {review.review}</p>
+                                <p>  {review.review}</p>
                             </div>
                         )}
                     </div>
@@ -147,13 +146,18 @@ const StudySessionDetails = () => {
             <div className="text-center">
                 <button
                     className="my-10 btn btn-warning btn-wide"
-                    onClick={handleBookSession}
-                    disabled={isBooked || isRegistrationClosed || role === "Admin" || role === "Tutor"}
-                >
+
+                    onClick={
+                        { Fee } < 0 ? { handleBookSession }
+                            :
+                            <Link></Link>
+                    }
+
+                    disabled={isBooked || isRegistrationClosed || role === "Admin" || role === "Tutor"}>
                     {buttonMessage}
                 </button>
             </div>
-        </div>
+        </div >
     );
 };
 
