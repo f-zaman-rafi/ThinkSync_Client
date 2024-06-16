@@ -50,10 +50,10 @@ export const router = createBrowserRouter([
                 path: '/sign-in',
                 element: <SignIn></SignIn>
             },
-            {
-                path: '/payment',
-                element: <Payment></Payment>
-            }
+            // {
+            //     path: '/payment',
+            //     element: <Payment></Payment>
+            // }
         ]
     },
     {
