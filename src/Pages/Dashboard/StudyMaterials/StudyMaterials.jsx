@@ -26,9 +26,11 @@ const StudyMaterials = () => {
     if (isLoading) return <LoadingSpinner />;
 
     return (
-        <div className="my-10 mx-10">
+        <div className="my-16 mx-10">
+            <p className="text-2xl font-bold my-8 mx-4">Study Materials</p>
+
             {/* Render materials */}
-            <div className="grid grid-cols-3">
+            <div className="grid lg:grid-cols-3 gap-10">
                 {materials.map(material => (
                     <div key={material._id}>
                         <div>

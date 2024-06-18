@@ -64,10 +64,10 @@ const EditSession = () => {
     return (
 
         <div className="">
-            <h1 className="text-5xl font-bold text-center pt-10">Create Session</h1>
+            <p className="text-2xl font-bold my-4 mx-4">Edit Session</p>
             <form onSubmit={handleSubmit(onSubmit)}>
 
-                <div className="mx-20 my-10 grid grid-cols-3 gap-y-5 gap-x-10">
+                <div className="mx-20 my-10 grid lg:grid-cols-3 gap-y-5 gap-x-10">
 
                     {/* title */}
 

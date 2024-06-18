@@ -212,7 +212,7 @@ const StudySessionDetails = () => {
             <h1 className="text-white font-bold text-xl leading-loose">Duration: {duration}</h1>
             <h1 className="text-white font-bold text-xl leading-loose">Registration Fee: ${Fee}</h1>
             <h1 className="text-white font-bold text-xl leading-loose">Reviews: </h1>
-            <div className="grid grid-cols-3 gap-5">
+            <div className="grid lg:grid-cols-3 gap-5">
                 {reviews.map(review => (
                     <div key={review._id}>
                         {review.session_id === _id && (

@@ -31,11 +31,11 @@ const ViewBookedSession = () => {
 
     return (
         <div className="max-w-5xl mx-auto">
-            <h1 className="text-2xl font-bold mb-4">Your Booked Sessions</h1>
+            <h1 className="text-2xl font-bold my-4 mx-4">Your Booked Sessions</h1>
             {bookedSessions.length === 0 ? (
                 <p className="text-lg">You have not booked any sessions yet.</p>
             ) : (
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid lg:grid-cols-3 grid-cols-1 gap-5 lg:max-w-5xl mx-16 lg:mx-auto my-20">
                     {bookedSessions.map(session => (
                         <div key={session._id}>
 

@@ -67,7 +67,7 @@ const DashNav = () => {
     return (
         <nav className="relative bg-white shadow dark:bg-gray-800">
             <div className="container px-6 py-3 mx-auto md:flex">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col lg:flex-row items-center justify-between">
                     <p className="text-3xl font-bold text-gray-50">Dashboard <div className="flex justify-between my-4 items-center text-center"><Link to='/'><span className="text-xs rounded-full border-blue-300 border-2 px-4 py-1 font-extralight">Home</span></Link><span className="text-xs font-extralight rounded-full border-red-500 border-2 px-4 py-1">{role}</span></div></p>
 
                     {/* Mobile menu button */}

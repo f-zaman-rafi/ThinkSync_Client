@@ -18,9 +18,9 @@ const TutorSection = () => {
     const uniqueTutors = Array.from(new Set(tutors.map(tutor => tutor.name)));
 
     return (
-        <div>
-            <h1 className="text-center font-bold text-5xl">Tutors</h1>
-            <div className="grid grid-cols-3 gap-5 max-w-5xl mx-auto my-20">
+        <div className="py-10">
+            <h1 className="text-center font-bold lg:text-5xl text-4xl">Tutors</h1>
+            <div className="grid lg:grid-cols-3 grid-cols-1 gap-5 lg:max-w-5xl mx-16 lg:mx-auto my-20">
                 {uniqueTutors.map(tutorName => (
                     <div key={tutorName}>
                         <div className="card w-72 glass">

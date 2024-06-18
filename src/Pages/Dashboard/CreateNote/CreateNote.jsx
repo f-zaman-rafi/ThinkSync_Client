@@ -30,8 +30,9 @@ const CreateNote = () => {
 
     return (
         <div>
+            <p className="text-2xl font-bold my-4 mx-4">Create Note</p>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="grid grid-cols-2 max-w-3xl gap-y-5 mx-auto mt-20">
+                <div className="grid lg:grid-cols-2 lg:max-w-3xl gap-y-5 lg:mx-auto mx-20 mt-10">
                     <label name='email' className="form-control w-full max-w-xs">
                         <div className="label">
                             <span className="label-text">Email</span>
