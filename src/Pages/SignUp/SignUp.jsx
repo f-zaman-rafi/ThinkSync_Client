@@ -20,102 +20,75 @@ const SignUp = () => {
     const axiosCommon = useAxiosCommon()
 
 
-    const onSubmit = data => {
-        console.log(data);
+    const onSubmit = async (data) => {
+        try {
+            const createUserResult = await createUser(data.email, data.password);
+            const loggedUser = createUserResult.user;
 
-        createUser(data.email, data.password)
-            .then(result => {
-                const loggedUser = result.user;
+            await updateUserProfile(data.username);
 
-                updateUserProfile(data.username)
-                    .then(() => {
-                        setUser({ ...loggedUser, displayName: data.username, role: data.role });
+            const userInfo = {
+                name: data.username,
+                email: data.email,
+                role: data.role,
+            };
 
-                        const userInfo = { name: data.username, email: data.email, role: data.role };
-                        axiosCommon.post('/users', userInfo)
-                            .then(res => {
-                                if (res.data.insertedId) {
-                                    console.log('Data inserted into the database successfully');
-                                    const from = location.state?.from?.pathname || '/';
-                                    navigate(from);
-                                    toast.success('Sign-Up Successfully');
-                                }
-                            })
-                            .catch(error => {
-                                console.error('Error inserting data into database:', error);
-                                toast.error('Error inserting data into database');
-                            });
-                    })
-                    .catch(error => {
-                        console.error('Error updating user profile:', error);
-                        toast.error('Error updating user profile');
-                    });
-            })
-            .catch(error => {
-                console.error('Error creating user:', error);
-                toast.error(error.message);
-            });
+            const jwtResponse = await axiosCommon.post('/auth/login', userInfo);
+            const token = jwtResponse.data.token;
+
+            localStorage.setItem('token', token);
+
+            const from = location.state?.from?.pathname || '/';
+            navigate(from);
+            toast.success('Sign-Up Successfully');
+            console.log('User created and authenticated successfully:', loggedUser);
+        } catch (error) {
+            console.error('Error during sign-up or authentication:', error);
+            toast.error('Sign-Up Failed');
+        }
     };
 
 
-    // googleSignIn
 
     const handleGoogleSignIn = async () => {
         try {
-            await signInWithGoogle()
-                .then(result => {
-                    console.log(result.user)
-                    const userInfo = {
-                        email: result.user?.email,
-                        name: result.user?.displayName,
-                        role: 'Student'
-                    }
-                    axiosCommon.post('/users', userInfo)
-                        .then(res => {
-                            console.log(res.data);
-                            console.log(userInfo);
-                            const from = location?.state?.from?.pathname || '/';
-                            navigate(from)
-                            toast.success('SignUp with Google Successfully')
-                        })
-
-
-                }
-                )
+            const result = await signInWithGoogle();
+            const user = result.user;
+            localStorage.setItem('token', user.stsTokenManager.accessToken);
+            const userInfo = {
+                email: user?.email,
+                name: user?.displayName,
+                role: "Student"
+            };
+            await axiosCommon.post('/users', userInfo);
+            const from = location.state?.from?.pathname || '/';
+            navigate(from);
+            toast.success('Sign-In with Google Successfully');
+        } catch (error) {
+            console.error(error);
+            toast.error(error.message);
         }
-        catch (error) {
-            console.log(error)
-            toast.error(error.message)
-        }
-    }
-
-
-    // githubSignIn
+    };
 
     const handleGithubSignIn = async () => {
         try {
-            await signInWithGithub()
-                .then(result => {
-                    console.log(result.user)
-                    const userInfo = {
-                        email: result.user?.email,
-                        name: result.user?.displayName,
-                        role: "Student"
-                    }
-                    axiosCommon.post('/users', userInfo)
-                        .then(res => {
-                            console.log(res.data)
-                            const from = location.state?.from?.pathname || '/';
-                            navigate(from)
-                            toast.success('Sign-Up with Github Successfully')
-                        })
-                })
+            const result = await signInWithGithub();
+            const user = result.user;
+            localStorage.setItem('token', user.stsTokenManager.accessToken);
+            const userInfo = {
+                email: user?.email,
+                name: user?.displayName,
+                role: "Student"
+            };
+            await axiosCommon.post('/users', userInfo);
+            const from = location.state?.from?.pathname || '/';
+            navigate(from);
+            toast.success('Sign-In with Github Successfully');
+        } catch (error) {
+            console.error(error);
+            toast.error(error.message);
         }
-        catch (error) {
-            console.log(error)
-            toast.error(error.message)
-        }
-    }
+    };
 
 
     return (
