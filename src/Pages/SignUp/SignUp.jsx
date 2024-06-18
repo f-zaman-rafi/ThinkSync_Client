@@ -193,7 +193,7 @@ const SignUp = () => {
                                 {...register("role", { required: "Role is required" })}
                             >
                                 <option value="" selected disabled>Pick your Role</option>
-                                <option value="Admin">Admin</option>
+                                <option value="Admin" disabled>Admin</option>
                                 <option value="Tutor">Tutor</option>
                                 <option value="Student">Student</option>
                             </select>
