@@ -2,6 +2,9 @@
 
 Welcome to StudySync, your platform for managing study sessions, assignments, and educational materials efficiently!
 
+## Assignment Variant
+- **Assignment Variant:** Assignment12_category_0023
+
 ## Admin Credentials
 - **Admin Username:** test@test.test
 - **Admin Password:** test!Test!123
