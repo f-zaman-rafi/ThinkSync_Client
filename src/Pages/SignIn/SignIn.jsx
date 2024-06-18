@@ -23,7 +23,6 @@ const SignIn = () => {
         try {
             const result = await signIn(data.email, data.password);
             const loggedUser = result.user;
-            // Assuming the token is in result.user.stsTokenManager.accessToken
             localStorage.setItem('token', loggedUser.stsTokenManager.accessToken);
             const from = location.state?.from?.pathname || '/';
             navigate(from);

@@ -20,34 +20,42 @@ const SignUp = () => {
     const axiosCommon = useAxiosCommon()
 
 
-    const onSubmit = async (data) => {
-        try {
-            const createUserResult = await createUser(data.email, data.password);
-            const loggedUser = createUserResult.user;
+    const onSubmit = data => {
+        console.log(data);
 
-            await updateUserProfile(data.username);
+        createUser(data.email, data.password)
+            .then(result => {
+                const loggedUser = result.user;
+                localStorage.setItem('token', loggedUser.stsTokenManager.accessToken);
+                updateUserProfile(data.username)
+                    .then(() => {
+                        setUser({ ...loggedUser, displayName: data.username, role: data.role });
 
-            const userInfo = {
-                name: data.username,
-                email: data.email,
-                role: data.role,
-            };
-
-            const jwtResponse = await axiosCommon.post('/auth/login', userInfo);
-            const token = jwtResponse.data.token;
-
-            localStorage.setItem('token', token);
-
-            const from = location.state?.from?.pathname || '/';
-            navigate(from);
-            toast.success('Sign-Up Successfully');
-            console.log('User created and authenticated successfully:', loggedUser);
-        } catch (error) {
-            console.error('Error during sign-up or authentication:', error);
-            toast.error('Sign-Up Failed');
-        }
+                        const userInfo = { name: data.username, email: data.email, role: data.role };
+                        axiosCommon.post('/users', userInfo)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    console.log('Data inserted into the database successfully');
+                                    const from = location.state?.from?.pathname || '/';
+                                    navigate(from);
+                                    toast.success('Sign-Up Successfully');
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Error inserting data into database:', error);
+                                toast.error('Error inserting data into database');
+                            });
+                    })
+                    .catch(error => {
+                        console.error('Error updating user profile:', error);
+                        toast.error('Error updating user profile');
+                    });
+            })
+            .catch(error => {
+                console.error('Error creating user:', error);
+                toast.error(error.message);
+            });
     };
-
 
 
     const handleGoogleSignIn = async () => {

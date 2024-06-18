@@ -2,31 +2,44 @@ import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from "../../Shared/LoadingSpinner/LoadingSpinner";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
-import { useEffect, useMemo, useState } from "react";
-import debounce from 'lodash/debounce';
+import { useState } from "react";
 
 const AllUsers = () => {
     const axiosSecure = useAxiosSecure();
     const [searchQuery, setSearchQuery] = useState('');
 
-    const { data: users = [], refetch, isLoading } = useQuery({
+    const { data: users = [], isLoading, refetch } = useQuery({
         queryKey: ['users', searchQuery],
         queryFn: async ({ queryKey }) => {
             const [, searchQuery] = queryKey;
             if (searchQuery) {
-                const { data } = await axiosSecure.get('/user/search', {
-                    params: {
-                        name: searchQuery,
-                        email: searchQuery
-                    }
-                });
-                return data;
+                try {
+                    const { data } = await axiosSecure.get('/users/search', {
+                        params: {
+                            query: searchQuery
+                        }
+                    });
+                    return data;
+                } catch (error) {
+                    console.error('Error searching users:', error);
+                    return [];
+                }
             } else {
-                const { data } = await axiosSecure.get('/users');
-                return data;
+                try {
+                    const { data } = await axiosSecure.get('/users');
+                    return data;
+                } catch (error) {
+                    console.error('Error fetching all users:', error);
+                    return [];
+                }
             }
         }
     });
+
+    const handleSearchChange = (e) => {
+        e.preventDefault
+        setSearchQuery(e.target.value);
+    };
 
     // make a user as an admin
     const handleMakeAdmin = user => {
@@ -109,26 +122,7 @@ const AllUsers = () => {
         });
     }
 
-    const handleSearchChange = (e) => {
-        setSearchQuery(e.target.value);
-    };
 
-    const debouncedHandleSearch = useMemo(
-        () => debounce(handleSearchChange, 300),
-        []
-    );
-
-    // Cleanup the debounce function on unmount
-    useEffect(() => {
-        return () => {
-            debouncedHandleSearch.cancel();
-        };
-    }, [debouncedHandleSearch]);
-
-    // const filteredUsers = users.filter(user =>
-    //     user.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    //     user.email.toLowerCase().includes(searchQuery.toLowerCase())
-    // );
 
     if (isLoading) return <LoadingSpinner />;
 
@@ -145,7 +139,7 @@ const AllUsers = () => {
                         type="text"
                         placeholder="Search by name or email"
                         value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
+                        onChange={handleSearchChange}
                         className="input input-bordered w-full max-w-xs"
                     />
                 </div>

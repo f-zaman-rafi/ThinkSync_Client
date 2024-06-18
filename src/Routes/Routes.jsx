@@ -27,12 +27,13 @@ import StudyMaterials from "../Pages/Dashboard/StudyMaterials/StudyMaterials";
 import ReviewAndRating from "../Pages/Dashboard/ReviewAndRating/ReviewAndRating";
 import StudentRoute from "./StudentRoute";
 import TutorRoute from "./TutorRoute";
-import Payment from "../Pages/Home/StudySession/StudySessionDetails/Payment";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: '/',
@@ -50,10 +51,7 @@ export const router = createBrowserRouter([
                 path: '/sign-in',
                 element: <SignIn></SignIn>
             },
-            // {
-            //     path: '/payment',
-            //     element: <Payment></Payment>
-            // }
+
         ]
     },
     {

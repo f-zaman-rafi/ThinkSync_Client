@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../../../Hooks/useAxiosSecure";
 
-const CheckoutForm = ({ fee, sessionId }) => {
+const CheckoutForm = ({ fee }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [error, setError] = useState('');
