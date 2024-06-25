@@ -10,7 +10,8 @@ Welcome to StudySync, your platform for managing study sessions, assignments, an
 - **Admin Password:** test!Test!123
 
 ## Live Site
-- **Live Site URL:** [StudySync Live](https://thinksynccc.web.app)
+- **Live Site URL:** [StudySync Live](https://thinksync.netlify.app/)
+- **Alternate Live Site URL:** [StudySync Live](https://thinksynccc.web.app)
 
 ## Repositories
 - **Client Side GitHub Repository:** [StudySync Client](https://github.com/programming-hero-web-course1/b9a12-client-side-F-Zaman-Rafi.git)
