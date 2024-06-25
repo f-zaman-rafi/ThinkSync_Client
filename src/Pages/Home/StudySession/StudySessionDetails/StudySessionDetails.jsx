@@ -9,6 +9,7 @@ import useRole from "../../../../Hooks/useRole";
 import { Elements, useStripe, CardElement, useElements } from '@stripe/react-stripe-js';
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import { loadStripe } from "@stripe/stripe-js";
+import { Helmet } from "react-helmet-async";
 
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_KEY);
 
@@ -199,6 +200,11 @@ const StudySessionDetails = () => {
 
     return (
         <div className="py-32 max-w-5xl mx-auto">
+
+            <Helmet>
+                <title>Session Details | ThinkSync</title>
+            </Helmet>
+
             <h1 className="text-white font-bold text-xl leading-loose">Session Title: {title}</h1>
             <h1 className="text-white font-bold text-xl leading-loose">Tutor Name: {name}</h1>
             {averageReviewRating !== null && (

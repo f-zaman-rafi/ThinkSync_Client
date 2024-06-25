@@ -5,7 +5,7 @@ const ErrorPage = () => {
     return (
         <div>
             <Helmet>
-                <title>Oops! || Elysium</title>
+                <title>Oops! | studySync</title>
             </Helmet>
             <div className="relative">
                 <p className=" text-3xl max-w-2xl mx-auto font-press text-center leading-loose pt-20 text-violet-500">Oops! <br /> You have landed a wrong place!</p>

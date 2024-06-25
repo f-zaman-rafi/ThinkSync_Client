@@ -21,22 +21,21 @@ const StudySessionCard = ({ session }) => {
     }, [Registration_End]);
 
     return (
-        <div>
-            <div className="card w-96 bg-base-100 shadow-xl">
-                <div className="card-body">
-                    <h2 className="card-title py-5">{title}</h2>
-                    <p className="leading-loose">{description}</p>
-                    <div className="card-actions flex justify-between mt-10">
-                        <button className={`btn ${status === "closed" ? "btn-secondary" : "btn-primary"}`}>
-                            {status.charAt(0).toUpperCase() + status.slice(1)}
-                        </button>
-                        <Link to={`/sessions/${_id}`}>
-                            <button className="btn btn-primary">Read More</button>
-                        </Link>
-                    </div>
+        <div className="card w-96 bg-base-100 shadow-xl h-full flex flex-col">
+            <div className="card-body flex flex-col justify-between">
+                <h2 className="card-title py-5 text-white font-bold text-xl">{title}</h2>
+                <p className="leading-loose flex-grow mb-10">{description}</p>
+                <div className="card-actions flex justify-between gap-14 items-center mt-auto">
+                    <p className={`font-semibold ${status === "closed" ? "bg-[#585858fd] py-[10.8px] px-5 rounded-lg text-black text-center" : "bg-[#8bfff5] py-[10.8px] px-5 rounded-lg text-black text-center"}`}>
+                        {status.charAt(0).toUpperCase() + status.slice(1)}
+                    </p>
+                    <Link to={`/sessions/${_id}`}>
+                        <button className="btn bg-yellow-400 hover:bg-red-600 font-semibold text-black">Read More</button>
+                    </Link>
                 </div>
             </div>
         </div>
+
     );
 };
 

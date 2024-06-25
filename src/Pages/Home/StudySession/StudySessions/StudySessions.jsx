@@ -26,17 +26,22 @@ const StudySessions = () => {
     const displayedSessions = showAll ? sessions : sessions.slice(0, maxVisibleSessions);
 
     return (
-        <div className='lg:mx-1'>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className=' max-w-7xl mx-auto'>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {displayedSessions.map(session => (
-                    <StudySessionCard key={session._id} session={session} />
+                    <div className="flex flex-col h-full" key={session._id}>
+                        <StudySessionCard session={session} />
+                    </div>
                 ))}
             </div>
-            {!showAll && sessions.length > maxVisibleSessions && (
-                <button onClick={() => setShowAll(true)} className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    Show All
-                </button>
-            )}
+
+            <div className='flex justify-center pt-10 pb-28'>
+                {!showAll && sessions.length > maxVisibleSessions && (
+                    <button onClick={() => setShowAll(true)} className="mt-10 btn-outline border-4 text-xl border-red-600 text-white font-bold py-3 px-10 rounded-xl hover:bg-black hover:text-white hover:border-yellow-400">
+                        Show All
+                    </button>
+                )}
+            </div>
         </div>
     );
 };

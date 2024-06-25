@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import toast from "react-hot-toast";
-import { SiStudyverse } from "react-icons/si";
 
 
 const Navbar = () => {
@@ -9,7 +8,6 @@ const Navbar = () => {
 
     const { user, logOut } = useAuth()
 
-    // console.log(user)
     const handleLogOut = () => {
         logOut()
             .then(() => { toast.success('Logged Out Successfully') })
@@ -19,10 +17,10 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="navbar fixed z-10 max-w-screen-2xl mx-auto bg-opacity-50 bg-base-100">
+            <div className="navbar max-w-screen-2xl mx-auto bg-black">
                 <div className="navbar-start">
 
-                    <Link to={'/'}><p className="btn btn-ghost text-sm lg:text-2xl "><SiStudyverse /> thinkSync</p></Link>
+                    <Link to={'/'}><p className=" flex gap-2 items-end text-red-600 text-sm font-bold lg:text-3xl font-stardos"><img className="h-12" src="/public/sync.svg" alt="" /> thinkSync</p></Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
