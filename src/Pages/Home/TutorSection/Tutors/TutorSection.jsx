@@ -27,12 +27,11 @@ const TutorSection = () => {
     const uniqueTutors = Array.from(new Set(tutors.map(tutor => tutor.name)));
 
 
-
     return (
-        <div className="py-10">
-            <h1 data-aos="fade-up" className="font-bold text-4xl lg:text-6xl pb-20 text-center text-[#8bfff5]">Mentors</h1>
+        <div data-aos="fade-up" className="py-10">
+            <h1 className="font-bold text-4xl lg:text-6xl pb-20 text-center text-[#8bfff5]">Mentors</h1>
             <div className="my-10 border-y-[16px] border-dashed border-white ">
-                <Marquee speed={120}>
+                <Marquee speed={70}>
                     <div className="flex gap-20 my-20 text-3xl font-bold mx-10 font-Playfair">
                         {uniqueTutors.map(tutorName => (
                             <div key={tutorName} className=" py-2 max-w-5xl leading-loose text-yellow-400">{tutorName}</div>

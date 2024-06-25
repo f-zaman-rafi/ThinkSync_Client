@@ -5,12 +5,12 @@ import { useEffect } from "react";
 
 const StudySessionSection = () => {
     useEffect(() => {
-        Aos.init({ duration: 3000 });
+        Aos.init({ duration: 1000 });
     }, []);
 
     return (
-        <div>
-            <p data-aos="fade-up" className="font-bold text-4xl lg:text-5xl py-24 text-center text-[#8bfff5]">Study Sessions</p>
+        <div data-aos="fade-up">
+            <p className="font-bold text-4xl lg:text-5xl py-24 text-center text-[#8bfff5]">Study Sessions</p>
             <div><StudySessions></StudySessions></div>
         </div>
     );

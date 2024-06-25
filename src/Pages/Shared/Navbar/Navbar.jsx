@@ -20,7 +20,7 @@ const Navbar = () => {
             <div className="navbar max-w-screen-2xl mx-auto bg-black">
                 <div className="navbar-start">
 
-                    <Link to={'/'}><p className=" flex gap-2 items-end text-red-600 text-sm font-bold lg:text-3xl font-stardos"><img className="h-12" src="/public/sync.svg" alt="" /> thinkSync</p></Link>
+                    <Link to={'/'}><p className=" flex gap-2 items-end text-red-600 text-sm font-bold lg:text-3xl font-stardos"><img className="h-12" src="../public/sync.svg" alt="" /> thinkSync</p></Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

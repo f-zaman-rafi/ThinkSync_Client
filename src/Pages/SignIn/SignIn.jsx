@@ -80,14 +80,14 @@ const SignIn = () => {
                 <title>Sign In | ThinkSync</title>
             </Helmet>
             <div className="py-20">
-                <div className="w-full max-w-sm p-6 m-auto mx-auto bg-white rounded-lg shadow-md dark:bg-gray-800">
+                <div className="w-full max-w-sm p-6 m-auto mx-auto  rounded-lg shadow-md bg-gray-100 bg-opacity-10">
                     <div className="flex justify-center mx-auto">
                         <img className="w-auto h-10 sm:h-8" src="/public/sync.svg" alt="Logo" />
                     </div>
 
                     <form onSubmit={handleSubmit(onSubmit)} className="mt-6">
                         <div className="mt-4">
-                            <label name="email" className="block text-sm text-gray-800 dark:text-gray-200">Email</label>
+                            <label name="email" className="block text-sm text-gray-800 dark:text-white">Email</label>
                             <input
                                 type="text"
                                 {...register("email", {
@@ -104,7 +104,7 @@ const SignIn = () => {
 
                         <div className="mt-4">
                             <div className="flex items-center justify-between">
-                                <label name="password" className="block text-sm text-gray-800 dark:text-gray-200">Password</label>
+                                <label name="password" className="block text-sm text-gray-800 dark:text-white">Password</label>
                                 <p className="text-xs text-gray-600 dark:text-gray-400 hover:underline">Forget Password?</p>
                             </div>
 
@@ -138,15 +138,15 @@ const SignIn = () => {
                         <span className="w-1/5 border-b dark:border-gray-400 lg:w-1/5"></span>
                     </div>
 
-                    <div className="flex flex-col items-center justify-between gap-2 px-8">
-                        <div data-aos="fade-left"><button onClick={handleGoogleSignIn} className="btn lg:btn-wide w-full btn-outline border-r-sky-400 border-t-red-400 border-b-green-400 border-l-yellow-400">Continue with
+                    <div className="mt-5 space-y-2">
+                        <div data-aos="fade-left"><button onClick={handleGoogleSignIn} className="btn  w-full btn-outline border-r-sky-400 border-t-red-400 border-b-green-400 border-l-yellow-400">Continue with
                             <span className="text-red-500">G</span>
                             <span className="text-yellow-500">o</span>
                             <span className="text-blue-500">o</span>
                             <span className="text-red-500">g</span>
                             <span className="text-green-500">l</span>
                             <span className="text-yellow-500">e</span></button></div>
-                        <div data-aos="fade-right"><button onClick={handleGithubSignIn} className="btn lg:btn-wide w-full btn-outline border-b-purple-500 border-t-green-500 border-l-black border-r-white
+                        <div data-aos="fade-right"><button onClick={handleGithubSignIn} className="btn w-full btn-outline border-b-purple-500 border-t-green-500 border-l-black border-r-white
 ">Continue with
                             <span className="text-black">G</span>
                             <span className="text-green-500">i</span>

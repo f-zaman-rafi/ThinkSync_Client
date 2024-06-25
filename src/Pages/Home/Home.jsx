@@ -15,7 +15,7 @@ const Home = () => {
     }, []);
 
     return (
-        <div>
+        <div className="overflow-hidden">
             <Helmet>
                 <title>Home | ThinkSync</title>
             </Helmet>
