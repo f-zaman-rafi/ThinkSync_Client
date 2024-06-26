@@ -30,21 +30,21 @@ const ViewBookedSession = () => {
     }
 
     return (
-        <div className="max-w-5xl mx-auto">
-            <h1 className="text-2xl font-bold my-4 mx-4">Your Booked Sessions</h1>
+        <div>
+            <p className="text-2xl font-bold my-4 mx-4">Your Booked Sessions</p>
             {bookedSessions.length === 0 ? (
                 <p className="text-lg">You have not booked any sessions yet.</p>
             ) : (
-                <div className="grid lg:grid-cols-3 grid-cols-1 gap-5 lg:max-w-5xl mx-16 lg:mx-auto my-20">
+                <div className="grid lg:grid-cols-3 grid-cols-1 gap-2 lg:max-w-7xl mx-16 lg:mx-auto my-20">
                     {bookedSessions.map(session => (
                         <div key={session._id}>
 
-                            <div className="card w-96 bg-base-100 shadow-xl">
+                            <div className="card w-96 bg-base-100 shadow-xl h-full flex flex-col">
                                 <div className="card-body">
                                     <h2 className="card-title py-5">{session.title}</h2>
-                                    <p className="leading-loose ">{session.description}</p>
+                                    <p className="leading-loose py-5">{session.description}</p>
                                     <div className="card-actions justify-end">
-                                        <Link to={`/dashboard/review-rating/${session.session_id}`}><button className="btn btn-primary">Read More</button></Link>
+                                        <Link to={`/dashboard/review-rating/${session.session_id}`}><button className="btn btn-ghost btn-outline border-pink-200">Read More</button></Link>
                                     </div>
                                 </div>
                             </div>

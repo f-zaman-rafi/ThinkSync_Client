@@ -131,7 +131,7 @@ const AllSessionsDash = () => {
                     <div className="flex items-center gap-x-3">
                         <h2 className="text-lg font-medium text-gray-800 dark:text-white">Total Sessions: </h2>
 
-                        <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400"> {sessionData.length}</span>
+                        <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400"> {sessionData.length} sessions</span>
                     </div>
 
                     <div className="flex flex-col mt-6">

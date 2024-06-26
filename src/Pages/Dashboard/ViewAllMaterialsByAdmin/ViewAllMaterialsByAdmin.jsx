@@ -53,9 +53,9 @@ const ViewAllMaterialsByAdmin = () => {
             <div className="my-12">
                 <section className="container px-4 mx-auto">
                     <div className="flex items-center gap-x-3">
-                        <h2 className="text-lg font-medium text-gray-800 dark:text-white">Total Users</h2>
+                        <h2 className="text-lg font-medium text-gray-800 dark:text-white">Total Materials:</h2>
 
-                        <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400">{materials.length} users</span>
+                        <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400">{materials.length}</span>
                     </div>
 
                     <div className="flex flex-col mt-6">
@@ -67,7 +67,7 @@ const ViewAllMaterialsByAdmin = () => {
                                             <tr>
                                                 <th scope="col" className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                                     <div className="flex items-center gap-x-3">
-                                                        <span>Name</span>
+                                                        <span>Session Title</span>
                                                     </div>
                                                 </th>
 
@@ -75,7 +75,7 @@ const ViewAllMaterialsByAdmin = () => {
 
                                                 <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                                     <button className="flex items-center gap-x-2">
-                                                        <span>Role</span>
+                                                        <span>Drive Link</span>
 
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-4 h-4">
                                                             <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
@@ -83,7 +83,7 @@ const ViewAllMaterialsByAdmin = () => {
                                                     </button>
                                                 </th>
 
-                                                <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">Email address</th>
+                                                <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">Image</th>
 
                                                 <th scope="col" className="relative py-3.5 px-4">
                                                     <span className="sr-only">Edit</span>
@@ -110,15 +110,25 @@ const ViewAllMaterialsByAdmin = () => {
                                                         </td>
 
                                                         <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                            {user.link && user.link.length > 20
-                                                                ? `${user.link.substring(0, 20)}...`
-                                                                : user.link}
+                                                            {user.link ? (
+                                                                <a href={user.link} className="link">
+                                                                    {user.link.length > 20 ? `${user.link.substring(0, 20)}...` : user.link}
+                                                                </a>
+                                                            ) : (
+                                                                "No link provided"
+                                                            )}
                                                         </td>
+
                                                         <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                                                            {user.image && user.image.length > 20
-                                                                ? `${user.image.substring(0, 20)}...`
-                                                                : user.image}
+                                                            {user.image ? (
+                                                                <a href={user.image} className="link" target="_blank" rel="noopener noreferrer">
+                                                                    {user.image.length > 20 ? `${user.image.substring(0, 20)}...` : user.image}
+                                                                </a>
+                                                            ) : (
+                                                                "No image provided"
+                                                            )}
                                                         </td>
+
 
                                                         <td className="px-4 py-4 text-sm whitespace-nowrap">
                                                             <div className="flex items-center gap-x-6">

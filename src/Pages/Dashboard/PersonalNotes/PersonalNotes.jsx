@@ -65,10 +65,10 @@ const PersonalNotes = () => {
     if (error) return <div>Error loading notes</div>;
     console.log(notes)
     return (
-        <div className="my-12">
-            <section className="container px-4 mx-auto">
-                <div className="flex items-center gap-x-3">
-                    <h2 className="text-lg font-medium text-gray-800 dark:text-white">Total Notes: </h2>
+        <div>
+            <section className="container mx-auto">
+                <div className="flex items-center gap-x-3 mb-12 text-2xl mx-4 my-4 font-bold">
+                    <h2 className="">Total Notes: </h2>
                     <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400"> {notes.length}</span>
                 </div>
 
