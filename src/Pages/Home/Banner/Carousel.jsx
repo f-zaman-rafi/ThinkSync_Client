@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -9,11 +10,18 @@ import img3 from '../../../assets/Photos/banner3.jpg'
 import img4 from '../../../assets/Photos/banner4.jpg'
 import Typewriter from 'typewriter-effect';
 
-
-
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import Slide from './Slide';
+
+const Slide = ({ image }) => {
+    return (
+        <header>
+            <div className="hero min-h-screen relative" style={{ backgroundImage: `url(${image})` }}>
+                <div className="absolute inset-0 bg-gradient-to-br from-black/80 to-black/40 "></div>
+            </div>
+        </header>
+    );
+};
 
 export default function Carousel() {
     return (
@@ -35,14 +43,11 @@ export default function Carousel() {
                 modules={[Autoplay, Pagination, Navigation]}
                 className="mySwiper"
             >
-                <SwiperSlide><Slide image={img0} text={'Unleash Your Creative Potential'} textColor="text-yellow-400"></Slide></SwiperSlide>
-                <SwiperSlide><Slide image={img1} text={'Embrace Innovation Every Day'} textColor="text-green-500"></Slide></SwiperSlide>
-                <SwiperSlide><Slide image={img2} text={'Ignite Your Passion for Learning'} textColor="text-blue-500"></Slide></SwiperSlide>
-                <SwiperSlide><Slide image={img3} text={'Achieve Greatness Through Knowledge'} textColor="text-purple-400"></Slide></SwiperSlide>
-                <SwiperSlide><Slide image={img4} text={'Transform Ideas into Actions'} textColor="text-red-600"></Slide></SwiperSlide>
-
-
-
+                <SwiperSlide><Slide image={img0} /></SwiperSlide>
+                <SwiperSlide><Slide image={img1} /></SwiperSlide>
+                <SwiperSlide><Slide image={img2} /></SwiperSlide>
+                <SwiperSlide><Slide image={img3} /></SwiperSlide>
+                <SwiperSlide><Slide image={img4} /></SwiperSlide>
             </Swiper>
             <div className="absolute z-10 text-[42px] top-[45%] left-[7%] leading-loose font-protest-revolution">
                 <Typewriter

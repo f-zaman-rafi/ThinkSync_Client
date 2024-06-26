@@ -1,10 +1,12 @@
-import { Helmet } from "react-helmet-async"; import StudySessionSection from "./StudySession/StudySessionSection";
+import { Helmet } from "react-helmet-async";
+import StudySessionSection from "./StudySession/StudySessionSection";
 import TutorSection from "./TutorSection/Tutors/TutorSection";
 import ScrollToTop from "../../ScrollToTop/ScrollToTop";
 import { useEffect } from "react";
 import Aos from "aos";
 import 'aos/dist/aos.css'
 import Carousel from "./Banner/Carousel";
+import Testimonials from "./Testimonials/Testimonials"
 
 
 const Home = () => {
@@ -24,6 +26,7 @@ const Home = () => {
             </div>
             <StudySessionSection></StudySessionSection>
             <TutorSection></TutorSection>
+            <div data-aos="fade-left" className="my-40"> <Testimonials /></div>
         </div>
     );
 };
