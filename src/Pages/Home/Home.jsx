@@ -1,11 +1,11 @@
 import { Helmet } from "react-helmet-async";
-import Banner from "./Banner/Banner";
 import StudySessionSection from "./StudySession/StudySessionSection";
 import TutorSection from "./TutorSection/Tutors/TutorSection";
 import ScrollToTop from "../../ScrollToTop/ScrollToTop";
 import { useEffect } from "react";
 import Aos from "aos";
 import 'aos/dist/aos.css'
+import Carousel from "./Banner/Carousel";
 
 
 const Home = () => {
@@ -21,7 +21,7 @@ const Home = () => {
             </Helmet>
             <ScrollToTop />
             <div data-aos="fade-down">
-                <Banner ></Banner>
+                <Carousel />
             </div>
             <StudySessionSection></StudySessionSection>
             <TutorSection></TutorSection>
