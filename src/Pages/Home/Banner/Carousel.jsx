@@ -44,26 +44,19 @@ export default function Carousel() {
 
 
             </Swiper>
-            <div className="absolute z-10 text-4xl top-[45%] left-[7%] leading-relaxed font-protest-revolution">
+            <div className="absolute z-10 text-[42px] top-[45%] left-[7%] leading-loose font-protest-revolution">
                 <Typewriter
                     options={{
                         strings: [
-                            '<span style="color: #FF0000;">Welcome to ThinkSync!</span> <br/> <span style="color: #4169E1;">where curiosity sparks, knowledge syncs,</span>  <br/> <span style="color: #FFFF00;">and learning feels like a conversation with your cleverest friend!</span>'
+                            '<span style="color: #FF0000;">Welcome to ThinkSync!</span> <br/> <span style="color: #4169E1;">where curiosity sparks, knowledge syncs,</span>  <br/> <span style="color: #FFFF00;">and learning feels like a conversation with your wittiest friend!</span>'
                         ],
                         autoStart: true,
                         loop: true,
                         cursor: '|',
-                        delay: 100,
+                        delay: 90,
                         deleteSpeed: 50,
                         pauseFor: 600000,
                         html: true,
-                    }}
-                    onInit={(typewriter) => {
-                        typewriter
-                            .typeString('Hello, world!')
-                            .pauseFor(2500)
-                            .typeString(' Welcome to my website.')
-                            .start();
                     }}
                 />
             </div>

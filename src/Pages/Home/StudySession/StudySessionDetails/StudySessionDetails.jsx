@@ -218,18 +218,21 @@ const StudySessionDetails = () => {
             <h1 className="text-white font-bold text-xl leading-loose">Duration: {duration}</h1>
             <h1 className="text-white font-bold text-xl leading-loose">Registration Fee: ${Fee}</h1>
             <h1 className="text-white font-bold text-xl leading-loose">Reviews: </h1>
-            <div className="grid lg:grid-cols-3 gap-5">
+
+            <div className="grid lg:grid-cols-3 gap-5 mt-5">
                 {reviews.map(review => (
-                    <div key={review._id}>
-                        {review.session_id === _id && (
+                    review.session_id === _id && (
+                        <div key={review._id}>
                             <div className="border-2 p-5">
-                                <p>Student: {review.studentName}</p>
-                                <p>{review.review}</p>
+                                <p>Student: {review.studentName}</p><br />
+                                <p>---{review.review}</p>
                             </div>
-                        )}
-                    </div>
+                        </div>
+                    )
                 ))}
             </div>
+
+
             <div className="text-center">
                 <button
                     className="my-10 btn btn-warning btn-wide"

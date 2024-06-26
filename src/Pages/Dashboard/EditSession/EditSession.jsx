@@ -51,7 +51,7 @@ const EditSession = () => {
             if (res.data === "Session Edited successfully") {
                 console.log('Data updated in the database Successfully');
                 toast.success('Session updated successfully');
-                navigate('/dashboard');
+                navigate('/dashboard/all-sessions-dash');
             }
         } catch (error) {
             console.error('Error updating session:', error);

@@ -79,6 +79,7 @@ const SignIn = () => {
             <Helmet>
                 <title>Sign In | ThinkSync</title>
             </Helmet>
+
             <div className="py-20">
                 <div className="w-full max-w-sm p-6 m-auto mx-auto  rounded-lg shadow-md bg-stone-700 bg-opacity-20">
                     <div className="flex justify-center mx-auto">
