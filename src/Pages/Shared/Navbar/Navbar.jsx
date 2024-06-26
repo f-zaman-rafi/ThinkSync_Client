@@ -16,8 +16,8 @@ const Navbar = () => {
 
 
     return (
-        <div>
-            <div className="navbar absolute z-10 max-w-screen-2xl mx-auto bg-transparent">
+        <div className="">
+            <div className="navbar absolute z-10 max-w-screen-2xl mx-auto lg:px-10 lg:pt-5 bg-transparent">
                 <div className="navbar-start">
 
                     <Link to={'/'}>
@@ -29,10 +29,7 @@ const Navbar = () => {
                         </p>
                     </Link>
                 </div>
-                <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
-                    </ul>
-                </div>
+
                 <div className="navbar-end">
                     {user ? (
                         <div className="flex lg:gap-2 justify-center items-center">
