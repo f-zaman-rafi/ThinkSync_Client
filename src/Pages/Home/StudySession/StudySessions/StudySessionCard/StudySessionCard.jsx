@@ -30,7 +30,7 @@ const StudySessionCard = ({ session }) => {
                         {status.charAt(0).toUpperCase() + status.slice(1)}
                     </p>
                     <Link to={`/sessions/${_id}`}>
-                        <button className="btn bg-yellow-400 hover:bg-red-600 font-semibold text-black">Read More</button>
+                        <button className="btn bg-[#FFFF00] hover:bg-red-600 font-semibold text-black">Read More</button>
                     </Link>
                 </div>
             </div>

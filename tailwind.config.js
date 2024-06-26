@@ -14,6 +14,7 @@ export default {
         'roboto': ['Roboto', 'sans-serif'],
         'playfair': ['Playfair Display', 'system-ui'],
         'roboto-mono': ['Roboto Mono', 'monospace'],
+        'inter': ['Inter', 'sans-serif']
 
       },
     },

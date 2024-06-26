@@ -107,7 +107,7 @@ const SignUp = () => {
             </Helmet>
 
             <div className="py-20">
-                <div className="w-full max-w-sm p-6 m-auto mx-auto rounded-lg shadow-md bg-gray-100 bg-opacity-10">
+                <div className="w-full max-w-sm p-6 m-auto mx-auto rounded-lg shadow-md bg-stone-700 bg-opacity-20">
                     <div className="flex justify-center mx-auto">
                         <img className="w-auto h-7 sm:h-8" src="/public/sync.svg" alt="" />
                     </div>
@@ -133,7 +133,7 @@ const SignUp = () => {
                                         message: "Username can only contain letters, numbers, and underscores"
                                     }
                                 })}
-                                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-transparent dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                             />
                             {errors.username?.type === 'required' && <span className="text-red-500 ml-1 text-xs">{errors.username.message}</span>}
                             {errors.username?.type === 'minLength' && <span className="text-red-500 ml-1 text-xs">{errors.username.message}</span>}
@@ -153,7 +153,7 @@ const SignUp = () => {
                                         message: "Enter a valid email address"
                                     }
                                 })}
-                                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-transparent dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                             />
                             {errors.email?.type === 'required' && <span className="text-red-500 ml-1 text-xs">{errors.email.message}</span>}
                             {errors.email?.type === 'pattern' && <span className="text-red-500 ml-1 text-xs">{errors.email.message}</span>}
@@ -177,7 +177,7 @@ const SignUp = () => {
                                         hasSpecialChar: value => /[@$!%*?&]/.test(value) || "Must contain at least one special character",
                                     }
                                 })}
-                                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-transparent dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                             />
                             {errors.password && <span className="text-red-500 ml-1 text-xs">{errors.password.message}</span>}
                         </div>
@@ -189,7 +189,7 @@ const SignUp = () => {
 
                             <select
                                 id="role"
-                                className="select w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                className="select w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-transparent dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                                 {...register("role", { required: "Role is required" })}
                             >
                                 <option value="" selected disabled>Pick your Role</option>
@@ -216,16 +216,16 @@ const SignUp = () => {
                     </div>
 
                     <div className="mt-5 space-y-2">
-                        <div data-aos="fade-left"><button onClick={handleGoogleSignIn} className="btn  w-full btn-outline border-r-sky-400 border-t-red-400 border-b-green-400 border-l-yellow-400">Continue with
+                        <div ><button onClick={handleGoogleSignIn} className="btn  w-full btn-outline border-r-sky-400 border-t-red-400 border-b-green-400 border-l-yellow-400">Continue with
                             <span className="text-red-500">G</span>
                             <span className="text-yellow-500">o</span>
                             <span className="text-blue-500">o</span>
                             <span className="text-red-500">g</span>
                             <span className="text-green-500">l</span>
                             <span className="text-yellow-500">e</span></button></div>
-                        <div data-aos="fade-right"><button onClick={handleGithubSignIn} className="btn w-full btn-outline border-b-purple-500 border-t-green-500 border-l-black border-r-white
+                        <div ><button onClick={handleGithubSignIn} className="btn w-full btn-outline border-b-purple-500 border-t-green-500 border-l-gray-700 border-r-white
 ">Continue with
-                            <span className="text-black">G</span>
+                            <span className="text-gray-500">G</span>
                             <span className="text-green-500">i</span>
                             <span className="text-yellow-500">t</span>
                             <span className="text-purple-500">H</span>

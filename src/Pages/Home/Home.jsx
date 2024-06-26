@@ -1,5 +1,4 @@
-import { Helmet } from "react-helmet-async";
-import StudySessionSection from "./StudySession/StudySessionSection";
+import { Helmet } from "react-helmet-async"; import StudySessionSection from "./StudySession/StudySessionSection";
 import TutorSection from "./TutorSection/Tutors/TutorSection";
 import ScrollToTop from "../../ScrollToTop/ScrollToTop";
 import { useEffect } from "react";

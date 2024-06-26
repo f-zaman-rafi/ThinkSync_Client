@@ -6,7 +6,6 @@ const Dashboard = () => {
         <div className="lg:max-w-7xl mx-auto">
             <DashNav></DashNav>
             <Outlet></Outlet>
-
         </div>
     );
 };
