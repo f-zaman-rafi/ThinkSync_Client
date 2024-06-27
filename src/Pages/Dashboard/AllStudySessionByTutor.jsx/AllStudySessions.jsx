@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAuth from "../../../Hooks/useAuth";
 import LoadingSpinner from "../../Shared/LoadingSpinner/LoadingSpinner";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -62,6 +63,9 @@ const AllStudySessions = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Sessions | ThinkSync</title>
+            </Helmet>
             <div className="my-12">
                 <section className="container px-4 mx-auto">
                     <div className="flex items-center gap-x-3">

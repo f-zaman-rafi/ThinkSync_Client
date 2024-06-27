@@ -3,6 +3,7 @@ import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const CreateNote = () => {
     const {
@@ -30,6 +31,9 @@ const CreateNote = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Create-Note | ThinkSync</title>
+            </Helmet>
             <p className="text-2xl font-bold my-4 mx-4">Create Note</p>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="grid lg:grid-cols-2 lg:max-w-3xl gap-y-5 lg:mx-auto mx-20 mt-10">

@@ -3,6 +3,7 @@ import LoadingSpinner from "../../Shared/LoadingSpinner/LoadingSpinner";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 const AllUsers = () => {
     const axiosSecure = useAxiosSecure();
@@ -118,6 +119,9 @@ const AllUsers = () => {
 
     return (
         <div className="my-12">
+            <Helmet>
+                <title>All-Users | ThinkSync</title>
+            </Helmet>
             <section className="container px-4 mx-auto">
                 <div className="flex items-center gap-x-3 pb-5">
                     <h2 className="text-lg font-medium text-gray-800 dark:text-white">Total Users</h2>

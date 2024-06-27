@@ -72,7 +72,7 @@ const ReviewAndRating = () => {
             <h1 className="text-white font-bold text-xl leading-loose">Class End Date: {Class_End}</h1>
             <h1 className="text-white font-bold text-xl leading-loose">Duration: {duration}</h1>
             <h1 className="text-white font-bold text-xl leading-loose">Registration Fee: ${Fee}</h1>
-            <div className="flex justify-center">
+            <div className="flex justify-center py-5">
                 <button className="btn" onClick={() => document.getElementById('my_modal_1').showModal()}>Review</button>
                 <dialog id="my_modal_1" className="modal">
                     <div className="modal-box">

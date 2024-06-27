@@ -3,6 +3,7 @@ import useAxiosCommon from "../../../Hooks/useAxiosCommon";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 const CreateSession = () => {
 
@@ -35,8 +36,11 @@ const CreateSession = () => {
 
 
     return (
-        <div className="">
-            <h1 className="text-5xl font-bold text-center pt-10">Create Session</h1>
+        <div className=" pb-10">
+            <Helmet>
+                <title>Create-Sessions | ThinkSync</title>
+            </Helmet>
+            <h1 className="text-lg font-medium text-gray-800 dark:text-white  px-4 ">Create Session</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
 
                 <div className="mx-20 my-10 grid lg:grid-cols-3 gap-y-5 gap-x-10">

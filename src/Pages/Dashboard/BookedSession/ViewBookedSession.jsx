@@ -3,6 +3,7 @@ import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import LoadingSpinner from "../../Shared/LoadingSpinner/LoadingSpinner";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 const ViewBookedSession = () => {
@@ -31,6 +32,9 @@ const ViewBookedSession = () => {
 
     return (
         <div className="min-h-screen pb-28">
+            <Helmet>
+                <title>Booked-Sessions | ThinkSync</title>
+            </Helmet>
             <p className="text-2xl font-bold my-4 mx-4">Your Booked Sessions</p>
             {bookedSessions.length === 0 ? (
                 <p className="text-lg">You have not booked any sessions yet.</p>

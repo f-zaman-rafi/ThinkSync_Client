@@ -63,7 +63,7 @@ const EditSession = () => {
 
     return (
 
-        <div className="">
+        <div className=" pb-12">
             <p className="text-2xl font-bold my-4 mx-4">Edit Session</p>
             <form onSubmit={handleSubmit(onSubmit)}>
 

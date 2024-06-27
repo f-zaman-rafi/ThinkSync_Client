@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import LoadingSpinner from "../../Shared/LoadingSpinner/LoadingSpinner";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const ViewAllMaterialsByAdmin = () => {
     const axiosSecure = useAxiosSecure()
@@ -50,6 +51,9 @@ const ViewAllMaterialsByAdmin = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>All-Materials | ThinkSync</title>
+            </Helmet>
             <div className="my-12">
                 <section className="container px-4 mx-auto">
                     <div className="flex items-center gap-x-3">

@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import LoadingSpinner from "../../Shared/LoadingSpinner/LoadingSpinner";
 import useAuth from "../../../Hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 const StudyMaterials = () => {
     const axiosSecure = useAxiosSecure()
@@ -27,10 +28,13 @@ const StudyMaterials = () => {
 
     return (
         <div className="min-h-screen">
+            <Helmet>
+                <title>Study-Materials | ThinkSync</title>
+            </Helmet>
             <p className="text-2xl font-bold my-4 mx-4">Study Materials</p>
 
             {/* Render materials */}
-            <div className="grid lg:grid-cols-3 grid-cols-1 gap-2 lg:max-w-7xl mx-16 lg:mx-auto my-20">
+            <div className="grid lg:grid-cols-3 grid-cols-1 gap-2 lg:max-w-7xl mx-8 lg:mx-auto my-20">
                 {materials.map(material => (
                     <div key={material._id}>
                         <div>
@@ -39,7 +43,7 @@ const StudyMaterials = () => {
                                     <div key={session._id}>
                                         {
                                             session.session_id === material.session_id ? (
-                                                <div className="card w-96 bg-base-100 shadow-xl h-full flex flex-col">
+                                                <div className="card lg:w-96 w-80 bg-base-100 shadow-xl h-full flex flex-col">
                                                     <figure>
                                                         <img className="px-5 mt-10 h-52" src={material.image} alt="Shoes" />
                                                     </figure>

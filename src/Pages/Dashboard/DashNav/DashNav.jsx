@@ -81,7 +81,8 @@ const DashNav = () => {
                 </div>
 
                 {/* Mobile Menu open: "block", Menu closed: "hidden" */}
-                <div className={`${isOpen ? 'translate-x-0 opacity-100' : 'opacity-0 -translate-x-full'} absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out  md:mt-0 md:p-0 md:top-0 md:relative md:opacity-100 md:translate-x-0 md:flex md:items-center md:justify-between`}>
+
+                <div className={`${isOpen ? 'translate-x-0 opacity-100' : 'opacity-0 -translate-x-full'} absolute inset-x-0 z-20 lg:w-full lg:rounded-none rounded-r-2xl w-3/5 px-6 py-4 lg:bg-none bg-neutral-800 lg:bg-opacity-0 bg-opacity-90 transition-all duration-1000 ease-in-out  md:mt-0 md:p-0 md:top-0 md:relative md:opacity-100 md:translate-x-0 md:flex md:items-center md:justify-between`}>
                     <div className="flex flex-col px-2 -mx-4 md:flex-row md:mx-10 md:py-0">
                         {navLink}
                     </div>

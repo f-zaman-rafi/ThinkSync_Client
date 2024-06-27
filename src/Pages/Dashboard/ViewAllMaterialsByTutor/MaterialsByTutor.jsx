@@ -3,6 +3,7 @@ import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import LoadingSpinner from "../../Shared/LoadingSpinner/LoadingSpinner";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 // import Swal from "sweetalert2";
 
 
@@ -27,10 +28,13 @@ const MaterialsByTutor = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>All-Materials | ThinkSync</title>
+            </Helmet>
             <div className="my-12">
                 <section className="container px-4 mx-auto">
                     <div className="flex items-center gap-x-3">
-                        <h2 className="text-lg font-medium text-gray-800 dark:text-white">Total Sessions: {materialsData.length}</h2>
+                        <h2 className="text-lg font-medium text-gray-800 dark:text-white">Total Materials: {materialsData.length}</h2>
 
                         <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400"> users</span>
                     </div>

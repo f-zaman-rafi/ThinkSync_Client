@@ -3,6 +3,7 @@ import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import LoadingSpinner from "../../Shared/LoadingSpinner/LoadingSpinner";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 const UploadMaterials = () => {
@@ -25,10 +26,13 @@ const UploadMaterials = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Upload-Materials | ThinkSync</title>
+            </Helmet>
             <div className="my-12">
                 <section className="container px-4 mx-auto">
                     <div className="flex items-center gap-x-3">
-                        <h2 className="text-lg font-medium text-gray-800 dark:text-white">Total Sessions: {filteredSessions.length}</h2>
+                        <h2 className="text-lg font-medium text-gray-800 dark:text-white">Total Materials: {filteredSessions.length}</h2>
 
                         <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400"> users</span>
                     </div>

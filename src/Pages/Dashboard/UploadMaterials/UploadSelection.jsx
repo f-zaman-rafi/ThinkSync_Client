@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import useAxiosCommon from "../../../Hooks/useAxiosCommon";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 
@@ -61,7 +62,10 @@ const UploadSelection = () => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="grid grid-cols-2 max-w-3xl gap-y-5 mx-auto mt-20">
+            <Helmet>
+                <title>Upload-Materials | ThinkSync</title>
+            </Helmet>
+            <div className="grid lg:grid-cols-2 lg:max-w-3xl gap-y-5 lg:mx-auto mx-8 mt-20 pb-10">
                 <label name='session_id' className="form-control w-full max-w-xs">
                     <div className="label">
                         <span className="label-text">Session ID</span>

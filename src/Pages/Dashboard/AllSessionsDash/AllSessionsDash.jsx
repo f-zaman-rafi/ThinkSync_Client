@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import LoadingSpinner from "../../Shared/LoadingSpinner/LoadingSpinner";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 const AllSessionsDash = () => {
@@ -126,6 +127,9 @@ const AllSessionsDash = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>All-Sessions | ThinkSync</title>
+            </Helmet>
             <div className="my-12">
                 <section className="container px-4 mx-auto">
                     <div className="flex items-center gap-x-3">

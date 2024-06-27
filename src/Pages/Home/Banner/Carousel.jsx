@@ -49,7 +49,7 @@ export default function Carousel() {
                 <SwiperSlide><Slide image={img3} /></SwiperSlide>
                 <SwiperSlide><Slide image={img4} /></SwiperSlide>
             </Swiper>
-            <div className="absolute z-10 text-[42px] top-[45%] left-[7%] leading-loose font-protest-revolution">
+            <div className="absolute z-10 text-xl lg:text-[42px] lg:top-[45%] top-[40%] left-[7%] leading-loose font-protest-revolution">
                 <Typewriter
                     options={{
                         strings: [
