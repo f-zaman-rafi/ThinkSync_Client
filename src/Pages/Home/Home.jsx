@@ -7,6 +7,7 @@ import Aos from "aos";
 import 'aos/dist/aos.css'
 import Carousel from "./Banner/Carousel";
 import Testimonials from "./Testimonials/Testimonials"
+import ContactUs from "./Contact Us/ContactUs";
 
 
 const Home = () => {
@@ -25,8 +26,9 @@ const Home = () => {
                 <Carousel />
             </div>
             <StudySessionSection></StudySessionSection>
-            <TutorSection></TutorSection>
             <div data-aos="fade-left" className="my-40"> <Testimonials /></div>
+            <TutorSection></TutorSection>
+            <div><ContactUs /></div>
         </div>
     );
 };
