@@ -83,7 +83,8 @@ const SignIn = () => {
             <div className="py-20">
                 <div className="w-full max-w-sm p-6 m-auto mx-auto  rounded-lg shadow-md bg-stone-700 bg-opacity-20">
                     <div className="flex justify-center mx-auto">
-                        <img className="w-auto h-32 sm:h-8" src="/public/sync.svg" alt="Logo" />
+                        <img className="w-auto h-32 sm:h-8" src="data:image/svg+xml,%3Csvg%20class%3D%22w-6%20h-6%20text-yellow-400%20dark%3Atext-yellow%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%3E%0A%20%20%20%20%3Cpath%20stroke%3D%22%23FFFF00%22%20stroke-linecap%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M8.737%208.737a21.49%2021.49%200%200%201%203.308-2.724m0%200c3.063-2.026%205.99-2.641%207.331-1.3%201.827%201.828.026%206.591-4.023%2010.64-4.049%204.049-8.812%205.85-10.64%204.023-1.33-1.33-.736-4.218%201.249-7.253m6.083-6.11c-3.063-2.026-5.99-2.641-7.331-1.3-1.827%201.828-.026%206.591%204.023%2010.64m3.308-9.34a21.497%2021.497%200%200%201%203.308%202.724m2.775%203.386c1.985%203.035%202.579%205.923%201.248%207.253-1.336%201.337-4.245.732-7.295-1.275M14%2012a2%202%200%201%201-4%200%202%202%200%200%201%204%200Z%22%20%2F%3E%0A%3C%2Fsvg%3E" alt="thinkSync" />
+
                     </div>
 
                     <form onSubmit={handleSubmit(onSubmit)} className="mt-6">

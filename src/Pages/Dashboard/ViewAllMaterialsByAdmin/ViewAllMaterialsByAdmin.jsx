@@ -9,7 +9,7 @@ const ViewAllMaterialsByAdmin = () => {
     const { data: materials = [], isLoading, refetch } = useQuery({
         queryKey: ['materials'],
         queryFn: async () => {
-            const { data } = await axiosSecure.get('/materials')
+            const { data } = await axiosSecure.get('/all-materials')
             return data;
 
         }
