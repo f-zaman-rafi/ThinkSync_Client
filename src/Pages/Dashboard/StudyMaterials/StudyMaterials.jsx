@@ -35,39 +35,27 @@ const StudyMaterials = () => {
 
             {/* Render materials */}
             <div className="grid lg:grid-cols-3 grid-cols-1 gap-2 lg:max-w-7xl mx-8 lg:mx-auto my-20">
-                {materials.map(material => (
-                    <div key={material._id}>
-                        <div>
-                            {bookedSessions
-                                .map(session => (
-                                    <div key={session._id}>
-                                        {
-                                            session.session_id === material.session_id ? (
-                                                <div className="card lg:w-96 w-80 bg-base-100 shadow-xl h-full flex flex-col">
-                                                    <figure>
-                                                        <img className="px-5 mt-10 h-52" src={material.image} alt="Shoes" />
-                                                    </figure>
-                                                    <div className="card-body flex flex-col justify-between">
-                                                        <h2 className="card-title py-5 text-white font-bold text-xl">{material.title}</h2>
-                                                        <a href={material.image} download className="btn btn-outline border-rose-400 btn-sm mr-2">
-                                                            Download Image
-                                                        </a>
-                                                        <a href={material.link} className="btn btn-sm btn-outline border-blue-400 link" target="_blank" rel="noopener noreferrer">
-                                                            G-Drive
-                                                        </a>
-                                                    </div>
-                                                </div>
-
-                                            )
-                                                :
-                                                ''
-                                        }
-                                    </div>
-                                ))}
+                {materials.map(material => {
+                    const session = bookedSessions.find(session => session.session_id === material.session_id);
+                    return session ? (
+                        <div key={material._id} className="card lg:w-96 w-80 bg-base-100 shadow-xl h-full flex flex-col">
+                            <figure>
+                                <img className="px-5 mt-10 h-52" src={material.image} alt="Material" />
+                            </figure>
+                            <div className="card-body flex flex-col justify-between">
+                                <h2 className="card-title py-5 text-white font-bold text-xl">{material.title}</h2>
+                                <a href={material.image} download className="btn btn-outline border-rose-400 btn-sm mr-2">
+                                    Download Image
+                                </a>
+                                <a href={material.link} className="btn btn-sm btn-outline border-blue-400 link" target="_blank" rel="noopener noreferrer">
+                                    G-Drive
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ) : null;
+                })}
             </div>
+
         </div >
     );
 };
