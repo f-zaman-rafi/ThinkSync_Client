@@ -17,7 +17,6 @@ const Slide = ({ image }) => {
     return (
         <header>
             <div className="hero min-h-screen relative" style={{ backgroundImage: `url(${image})` }}>
-                <div className="absolute inset-0 bg-gradient-to-br from-black/80 to-black/40 "></div>
             </div>
         </header>
     );

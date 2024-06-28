@@ -5,9 +5,9 @@ import ScrollToTop from "../../ScrollToTop/ScrollToTop";
 import { useEffect } from "react";
 import Aos from "aos";
 import 'aos/dist/aos.css'
-import Carousel from "./Banner/Carousel";
 import Testimonials from "./Testimonials/Testimonials"
 import ContactUs from "./Contact Us/ContactUs";
+import NewBanner from "./Banner/NewBanner";
 
 
 const Home = () => {
@@ -22,9 +22,7 @@ const Home = () => {
                 <title>Home | ThinkSync</title>
             </Helmet>
             <ScrollToTop />
-            <div data-aos="fade-down">
-                <Carousel />
-            </div>
+            <NewBanner />
             <StudySessionSection></StudySessionSection>
             <div data-aos="fade-left" className="my-40"> <Testimonials /></div>
             <TutorSection></TutorSection>
