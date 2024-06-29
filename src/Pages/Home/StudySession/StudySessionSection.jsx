@@ -10,7 +10,7 @@ const StudySessionSection = () => {
 
     return (
         <div data-aos="fade-up">
-            <p className="font-bold text-4xl lg:text-5xl py-24 text-center font-philosopher text-stone-800">Study Sessions</p>
+            <p className="font-bold text-4xl lg:text-6xl py-24 text-center font-stardos text-stone-800">Study Sessions</p>
             <div><StudySessions></StudySessions></div>
         </div>
     );

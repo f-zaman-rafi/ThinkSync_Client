@@ -37,7 +37,7 @@ const StudySessions = () => {
 
             <div className='flex justify-center pt-10 pb-28'>
                 {!showAll && sessions.length > maxVisibleSessions && (
-                    <button onClick={() => setShowAll(true)} className="mt-10 btn-outline border-4 text-xl border-[#ff0000] text-white py-3 px-10 rounded-xl hover:bg-black hover:text-white hover:border-[#FFFF00]">
+                    <button onClick={() => setShowAll(true)} className="mt-10 btn btn-outline btn-wide text-xl py-2 font-bold hover:bg-stone-800 hover:text-white ">
                         Show All
                     </button>
                 )}
