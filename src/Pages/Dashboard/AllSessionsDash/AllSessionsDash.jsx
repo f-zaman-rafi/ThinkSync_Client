@@ -218,11 +218,11 @@ const AllSessionsDash = () => {
                                                                             <h3 className="font-bold text-lg">Session Authentication</h3>
                                                                             <div className="mt-4">
                                                                                 <div className="flex items-center justify-between">
-                                                                                    <label name="role" className="block text-sm text-gray-800 dark:text-gray-200">Select approval</label>
+                                                                                    <label name="role" className="block text-sm text-gray-800 ">Select approval</label>
                                                                                 </div>
                                                                                 <select
                                                                                     id="Status"
-                                                                                    className="select w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                                                                    className="select w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg   dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                                                                                 >
                                                                                     <option value="" selected disabled>Choose an option</option>
                                                                                     <option value="Approve">Approve</option>
@@ -257,10 +257,10 @@ const AllSessionsDash = () => {
                                                                         <h3 className="font-bold text-lg">Session Details</h3>
                                                                         <div className="mt-4">
                                                                             <div className="flex items-center justify-between">
-                                                                                <label htmlFor="sessionType" className="block text-sm text-gray-800 dark:text-gray-200">Is the session free or paid?</label>
+                                                                                <label htmlFor="sessionType" className="block text-sm text-gray-800 pr-5 ">Is the session free or paid?</label>
                                                                                 <select
                                                                                     id="sessionType"
-                                                                                    className="select w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                                                                    className="select w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg   dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                                                                                     onChange={() => {
                                                                                         const sessionType = document.getElementById('sessionType').value;
                                                                                         const amountInput = document.getElementById('amount');
@@ -278,12 +278,12 @@ const AllSessionsDash = () => {
                                                                             </div>
                                                                             <div className="mt-4">
                                                                                 <div className="flex items-center justify-between">
-                                                                                    <label htmlFor="amount" className="block text-sm text-gray-800 dark:text-gray-200">Amount</label>
+                                                                                    <label htmlFor="amount" className="block text-sm text-gray-800 mr-5">Amount</label>
                                                                                     <input
                                                                                         type="number"
                                                                                         id="amount"
                                                                                         name="amount"
-                                                                                        className="input w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                                                                        className="input w-full px-4 py-2 mt-2 text-gray-700  border rounded-lg   dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                                                                                         placeholder="Enter amount"
                                                                                         min="0"
                                                                                         step="any"

@@ -67,7 +67,7 @@ const ViewAllMaterialsByAdmin = () => {
                             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                                 <div className="overflow-hidden border border-white dark:border-stone-700 md:rounded-lg">
                                     <table className="min-w-full divide-y divide-white ">
-                                        <thead className="bg-stone-50 dark:bg-stone-800">
+                                        <thead className="bg-stone-50 dark:bg-stone-900">
                                             <tr>
                                                 <th scope="col" className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                                     <div className="flex items-center gap-x-3">

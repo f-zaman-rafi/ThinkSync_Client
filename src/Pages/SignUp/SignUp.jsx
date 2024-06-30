@@ -107,15 +107,15 @@ const SignUp = () => {
             </Helmet>
 
             <div className="py-20">
-                <div className="w-full max-w-sm p-6 m-auto mx-auto rounded-lg shadow-md bg-stone-700 bg-opacity-20">
+                <div className="w-full max-w-sm p-6 m-auto mx-auto rounded-lg shadow-md border-2">
                     <div className="flex justify-center mx-auto">
-                        <img className="w-auto h-32 sm:h-8" src="data:image/svg+xml,%3Csvg%20class%3D%22w-6%20h-6%20text-yellow-400%20dark%3Atext-yellow%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%3E%0A%20%20%20%20%3Cpath%20stroke%3D%22%23FFFF00%22%20stroke-linecap%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M8.737%208.737a21.49%2021.49%200%200%201%203.308-2.724m0%200c3.063-2.026%205.99-2.641%207.331-1.3%201.827%201.828.026%206.591-4.023%2010.64-4.049%204.049-8.812%205.85-10.64%204.023-1.33-1.33-.736-4.218%201.249-7.253m6.083-6.11c-3.063-2.026-5.99-2.641-7.331-1.3-1.827%201.828-.026%206.591%204.023%2010.64m3.308-9.34a21.497%2021.497%200%200%201%203.308%202.724m2.775%203.386c1.985%203.035%202.579%205.923%201.248%207.253-1.336%201.337-4.245.732-7.295-1.275M14%2012a2%202%200%201%201-4%200%202%202%200%200%201%204%200Z%22%20%2F%3E%0A%3C%2Fsvg%3E" alt="thinkSync" />
+                        <img className="w-auto h-32 sm:h-8" src="data:image/svg+xml,%3Csvg%20class%3D%22w-6%20h-6%20text-yellow-400%20dark%3Atext-yellow%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%3E%0A%20%20%20%20%3Cpath%20stroke%3D%22%23D2691E%22%20stroke-linecap%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M8.737%208.737a21.49%2021.49%200%200%201%203.308-2.724m0%200c3.063-2.026%205.99-2.641%207.331-1.3%201.827%201.828.026%206.591-4.023%2010.64-4.049%204.049-8.812%205.85-10.64%204.023-1.33-1.33-.736-4.218%201.249-7.253m6.083-6.11c-3.063-2.026-5.99-2.641-7.331-1.3-1.827%201.828-.026%206.591%204.023%2010.64m3.308-9.34a21.497%2021.497%200%200%201%203.308%202.724m2.775%203.386c1.985%203.035%202.579%205.923%201.248%207.253-1.336%201.337-4.245.732-7.295-1.275M14%2012a2%202%200%201%201-4%200%202%202%200%200%201%204%200Z%22%20%2F%3E%0A%3C%2Fsvg%3E" alt="thinkSync" />
                     </div>
 
                     <form onSubmit={handleSubmit(onSubmit)} className="mt-6">
 
                         <div>
-                            <label name="username" className="block text-sm text-gray-800 dark:text-gray-200">Username</label>
+                            <label name="username" className="block text-sm text-gray-800 font-bold ">Username</label>
                             <input
                                 type="text"
                                 {...register("username", {
@@ -133,7 +133,7 @@ const SignUp = () => {
                                         message: "Username can only contain letters, numbers, and underscores"
                                     }
                                 })}
-                                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-transparent dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                className="block w-full px-4 py-2 mt-2 text-gray-700  border rounded-lg dark:bg-transparent dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                             />
                             {errors.username?.type === 'required' && <span className="text-red-500 ml-1 text-xs">{errors.username.message}</span>}
                             {errors.username?.type === 'minLength' && <span className="text-red-500 ml-1 text-xs">{errors.username.message}</span>}
@@ -143,7 +143,7 @@ const SignUp = () => {
 
 
                         <div className="mt-4">
-                            <label name="email" className="block text-sm text-gray-800 dark:text-gray-200">Email</label>
+                            <label name="email" className="block text-sm text-gray-800 font-bold ">Email</label>
                             <input
                                 type="text"
                                 {...register("email", {
@@ -153,7 +153,7 @@ const SignUp = () => {
                                         message: "Enter a valid email address"
                                     }
                                 })}
-                                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-transparent dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                className="block w-full px-4 py-2 mt-2 text-gray-700  border rounded-lg dark:bg-transparent dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                             />
                             {errors.email?.type === 'required' && <span className="text-red-500 ml-1 text-xs">{errors.email.message}</span>}
                             {errors.email?.type === 'pattern' && <span className="text-red-500 ml-1 text-xs">{errors.email.message}</span>}
@@ -161,8 +161,8 @@ const SignUp = () => {
 
                         <div className="mt-4">
                             <div className="flex items-center justify-between">
-                                <label name="password" className="block text-sm text-gray-800 dark:text-gray-200">Password</label>
-                                < p href="#" className="text-xs text-gray-600 dark:text-gray-400 hover:underline">Forget Password?</p>
+                                <label name="password" className="block text-sm text-gray-800 font-bold ">Password</label>
+                                < p href="#" className="text-xs text-gray-900 font-semibold hover:underline">Forget Password?</p>
                             </div>
 
                             <input
@@ -177,19 +177,19 @@ const SignUp = () => {
                                         hasSpecialChar: value => /[@$!%*?&]/.test(value) || "Must contain at least one special character",
                                     }
                                 })}
-                                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-transparent dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                className="block w-full px-4 py-2 mt-2 text-gray-700  border rounded-lg dark:bg-transparent dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                             />
                             {errors.password && <span className="text-red-500 ml-1 text-xs">{errors.password.message}</span>}
                         </div>
 
                         <div className="mt-4">
                             <div className="flex items-center justify-between">
-                                <label name="role" className="block text-sm text-gray-800 dark:text-gray-200">Select your role here</label>
+                                <label name="role" className="block text-sm text-gray-800 font-bold ">Select your role here</label>
                             </div>
 
                             <select
                                 id="role"
-                                className="select w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-transparent dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                className="select w-full px-4 py-2 mt-2 text-gray-700  border rounded-lg dark:bg-transparent  dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                                 {...register("role", { required: "Role is required" })}
                             >
                                 <option value="" selected disabled>Pick your Role</option>
@@ -208,7 +208,7 @@ const SignUp = () => {
                     <div className="flex items-center justify-between mt-4">
                         <span className="w-1/5 border-b dark:border-gray-600 lg:w-1/5"></span>
 
-                        <p href="#" className="text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline">
+                        <p href="#" className="text-xs text-center text-gray-700 uppercase  hover:underline">
                             or login with Social Media
                         </p>
 
@@ -216,7 +216,7 @@ const SignUp = () => {
                     </div>
 
                     <div className="mt-5 space-y-2">
-                        <div ><button onClick={handleGoogleSignIn} className="btn  w-full btn-outline border-r-sky-400 border-t-red-400 border-b-green-400 border-l-yellow-400">Continue with
+                        <div ><button onClick={handleGoogleSignIn} className="btn  w-full btn-outline border-r-sky-400 border-t-red-400 border-b-green-400 border-l-yellow-400">
                             <span className="text-red-500">G</span>
                             <span className="text-yellow-500">o</span>
                             <span className="text-blue-500">o</span>
@@ -224,7 +224,7 @@ const SignUp = () => {
                             <span className="text-green-500">l</span>
                             <span className="text-yellow-500">e</span></button></div>
                         <div ><button onClick={handleGithubSignIn} className="btn w-full btn-outline border-b-purple-500 border-t-green-500 border-l-gray-700 border-r-white
-">Continue with
+">
                             <span className="text-gray-500">G</span>
                             <span className="text-green-500">i</span>
                             <span className="text-yellow-500">t</span>
@@ -235,7 +235,7 @@ const SignUp = () => {
                         </button></div>
                     </div>
 
-                    <p className="mt-8 text-xs font-light text-center text-gray-400"> Already have an account? <Link to='/sign-in'>< p href="#" className="font-medium text-gray-700 dark:text-gray-200 hover:underline">Login</p></Link></p >
+                    <p className="mt-8 text-xs text-center text-gray-700 font-bold"> Already have an account? <Link to='/sign-in'>< p href="#" className="font-bold text-gray-700  hover:underline">Login</p></Link></p >
                 </div >
             </div >
         </>

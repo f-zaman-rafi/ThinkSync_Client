@@ -62,16 +62,16 @@ const ReviewAndRating = () => {
 
     return (
         <div className="py-32 max-w-5xl mx-auto">
-            <h1 className="text-white font-bold text-xl leading-loose">Session Title: {title}</h1>
-            <h1 className="text-white font-bold text-xl leading-loose">Tutor Name: {name}</h1>
-            <h1 className="text-white font-bold text-xl leading-loose">Rating: {averageRating}</h1>
-            <h1 className="text-white font-bold text-xl leading-loose">Description: {description}</h1>
-            <h1 className="text-white font-bold text-xl leading-loose">Session Start Date: {Registration_Start}</h1>
-            <h1 className="text-white font-bold text-xl leading-loose">Session End Date: {Registration_End}</h1>
-            <h1 className="text-white font-bold text-xl leading-loose">Class Start Date: {Class_Start}</h1>
-            <h1 className="text-white font-bold text-xl leading-loose">Class End Date: {Class_End}</h1>
-            <h1 className="text-white font-bold text-xl leading-loose">Duration: {duration}</h1>
-            <h1 className="text-white font-bold text-xl leading-loose">Registration Fee: ${Fee}</h1>
+            <h1 className="text-stone-800 font-bold text-xl leading-loose">Session Title: {title}</h1>
+            <h1 className="text-stone-800 font-bold text-xl leading-loose">Tutor Name: {name}</h1>
+            <h1 className="text-stone-800 font-bold text-xl leading-loose">Rating: {averageRating}</h1>
+            <h1 className="text-stone-800 font-bold text-xl leading-loose">Description: {description}</h1>
+            <h1 className="text-stone-800 font-bold text-xl leading-loose">Session Start Date: {Registration_Start}</h1>
+            <h1 className="text-stone-800 font-bold text-xl leading-loose">Session End Date: {Registration_End}</h1>
+            <h1 className="text-stone-800 font-bold text-xl leading-loose">Class Start Date: {Class_Start}</h1>
+            <h1 className="text-stone-800 font-bold text-xl leading-loose">Class End Date: {Class_End}</h1>
+            <h1 className="text-stone-800 font-bold text-xl leading-loose">Duration: {duration}</h1>
+            <h1 className="text-stone-800 font-bold text-xl leading-loose">Registration Fee: ${Fee}</h1>
             <div className="flex justify-center py-5">
                 <button className="btn" onClick={() => document.getElementById('my_modal_1').showModal()}>Review</button>
                 <dialog id="my_modal_1" className="modal">
@@ -79,7 +79,7 @@ const ReviewAndRating = () => {
                         <h3 className="font-bold text-lg">Add Review and Rating</h3>
                         <form onSubmit={handleSubmitReview}>
                             <div className="py-4">
-                                <label htmlFor="rating" className="block text-white font-bold">Rating:</label>
+                                <label htmlFor="rating" className="block text-stone-800 font-bold">Rating:</label>
                                 <input
                                     type="number"
                                     id="rating"
@@ -91,7 +91,7 @@ const ReviewAndRating = () => {
                                 />
                             </div>
                             <div className="py-4">
-                                <label htmlFor="review" className="block text-white font-bold">Review:</label>
+                                <label htmlFor="review" className="block text-stone-800 font-bold">Review:</label>
                                 <textarea
                                     id="review"
                                     name="review"

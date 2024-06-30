@@ -65,7 +65,7 @@ const DashNav = () => {
         <nav className="relative">
             <div className="container px-6 py-3 mx-auto md:flex">
                 <div className="flex flex-col lg:flex-row items-center justify-between">
-                    <p className="text-3xl font-bold text-yellow-400">Dashboard <div className="flex justify-between my-4 items-center text-center"><Link to='/'><span className="text-xs rounded-full border-blue-300 border-2 px-4 py-1 font-medium text-stone-700">Home</span></Link><span className="text-xs font-medium rounded-full border-red-600 border-2 px-4 py-1 text-stone-700">{role}</span></div></p>
+                    <p className="text-3xl font-bold text-stone-900">Dashboard <div className="flex justify-between my-4 items-center text-center"><Link to='/'><span className="text-xs rounded-full border-blue-300 border-2 px-4 py-1 font-medium text-stone-700">Home</span></Link><span className="text-xs font-medium rounded-full border-red-600 border-2 px-4 py-1 text-stone-700">{role}</span></div></p>
 
                     {/* Mobile menu button */}
                     <div className="flex lg:hidden">
