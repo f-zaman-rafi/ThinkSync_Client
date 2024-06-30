@@ -10,7 +10,8 @@ import { Elements, useStripe, CardElement, useElements } from '@stripe/react-str
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import { loadStripe } from "@stripe/stripe-js";
 import { Helmet } from "react-helmet-async";
-
+import Aos from "aos";
+import 'aos/dist/aos.css'
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_KEY);
 
 const StudySessionDetails = () => {
@@ -194,42 +195,52 @@ const StudySessionDetails = () => {
         }
     };
 
+    useEffect(() => {
+        Aos.init({ duration: 3000 });
+    }, []);
+
     if (sessionLoading || bookingsLoading) return <LoadingSpinner />;
 
     const { title, name, description, Registration_Start, Registration_End, Class_Start, Class_End, duration, Fee, _id } = session;
 
     return (
-        <div className="py-32 max-w-5xl mx-auto">
+        <div className="py-32 max-w-7xl mx-auto">
 
             <Helmet>
                 <title>Session Details | ThinkSync</title>
             </Helmet>
 
-            <h1 className="text-white font-bold text-xl leading-loose">Session Title: {title}</h1>
-            <h1 className="text-white font-bold text-xl leading-loose">Tutor Name: {name}</h1>
-            {averageReviewRating !== null && (
-                <h1 className="text-white font-bold text-xl leading-loose">Average Rating: {averageReviewRating.toFixed(1)}</h1>
-            )}
-            <h1 className="text-white font-bold text-xl leading-loose">Description: {description}</h1>
-            <h1 className="text-white font-bold text-xl leading-loose">Session Start Date: {Registration_Start}</h1>
-            <h1 className="text-white font-bold text-xl leading-loose">Session End Date: {Registration_End}</h1>
-            <h1 className="text-white font-bold text-xl leading-loose">Class Start Date: {Class_Start}</h1>
-            <h1 className="text-white font-bold text-xl leading-loose">Class End Date: {Class_End}</h1>
-            <h1 className="text-white font-bold text-xl leading-loose">Duration: {duration}</h1>
-            <h1 className="text-white font-bold text-xl leading-loose">Registration Fee: ${Fee}</h1>
-            <h1 className="text-white font-bold text-xl leading-loose">Reviews: </h1>
+            <div className="flex flex-col lg:flex-row justify-center px-5 lg:px-0">
+                <div className="w-full h-full">
+                    <h1 className="text-stone-800 font-bold text-3xl lg:text-7xl leading-normal">{title}</h1>
+                    <h1 className="text-stone-800 font-bold text-xl leading-loose">by {name}</h1>
+                </div>
+                <div className="pt-20 h-full w-full">
+                    {averageReviewRating !== null && (
+                        <h1 data-aos="fade-left" data-aos-delay="600" className="text-stone-800 font-medium text-xl leading-loose">Average Rating: {averageReviewRating.toFixed(1)}</h1>
+                    )}
+                    <h1 data-aos="fade-left" data-aos-delay="900" className="text-stone-800 font-extrabold text-2xl leading-loose">{description}</h1>
+                    <h1 data-aos="fade-left" data-aos-delay="1200" className="text-stone-800 font-medium text-xl leading-loose">Session Starting From: {Registration_Start}</h1>
+                    <h1 data-aos="fade-left" data-aos-delay="1500" className="text-stone-800 font-medium text-xl leading-loose">Session Deadline: {Registration_End}</h1>
+                    <h1 data-aos="fade-left" data-aos-delay="1800" className="text-stone-800 font-medium text-xl leading-loose">Class Starting From: {Class_Start}</h1>
+                    <h1 data-aos="fade-left" data-aos-delay="2100" className="text-stone-800 font-medium text-xl leading-loose">Class will be ended by: {Class_End}</h1>
+                    <h1 data-aos="fade-left" data-aos-delay="2400" className="text-stone-800 font-medium text-xl leading-loose">Duration: {duration}</h1>
+                    <h1 data-aos="fade-left" data-aos-delay="2700" className="text-stone-800 font-medium text-xl leading-loose">Registration Fee: ${Fee}</h1>
+                    <h1 data-aos="fade-left" data-aos-delay="3000" className="text-stone-800 font-medium text-xl leading-loose">Reviews: </h1>
 
-            <div className="grid lg:grid-cols-3 gap-5 mt-5">
-                {reviews.map(review => (
-                    review.session_id === _id && (
-                        <div key={review._id}>
-                            <div className="border-2 p-5">
-                                <p>Student: {review.studentName}</p><br />
-                                <p>---{review.review}</p>
-                            </div>
-                        </div>
-                    )
-                ))}
+                    <div className="grid lg:grid-cols-2 gap-5 mt-5">
+                        {reviews.map(review => (
+                            review.session_id === _id && (
+                                <div key={review._id}>
+                                    <div className="bg-gray-300 rounded-xl p-5">
+                                        <p>Student: {review.studentName}</p><br />
+                                        <p>---{review.review}</p>
+                                    </div>
+                                </div>
+                            )
+                        ))}
+                    </div>
+                </div>
             </div>
 
 
@@ -284,7 +295,7 @@ const StudySessionDetails = () => {
                                 </button>
                                 <button
                                     type="submit"
-                                    className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+                                    className="px-4 py-2 bg-blue-500 text-stone-800 rounded-md hover:bg-blue-600"
 
                                 >
                                     Pay ${Fee}

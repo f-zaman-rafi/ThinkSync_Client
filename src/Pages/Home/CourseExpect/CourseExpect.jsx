@@ -12,7 +12,7 @@ const CourseExpect = () => {
     return (
         <div className="flex lg:flex-row flex-col py-20">
             <div className="  flex justify-items-center">
-                <div className="ml-16">
+                <div className="lg:ml-16 ml-5">
                     <h1 className="lg:text-5xl text-3xl lg:w-3/4 font-bold py-10 ">What to Expect from a thinkSync Course</h1>
                     <p className="lg:w-4/5 pb-8 lg:px-0 px-5 font-medium">Joining a thinkSync course ensures a successful learning experience. Our courses provide practical skills alongside theoretical knowledge. Benefit from expert instructors, hands-on projects, and a supportive environment that fosters growth.</p>
                     <p className="px-5"><img className="lg:h-96 h-[200px] rounded-2xl" src={image} alt="learning" /></p>

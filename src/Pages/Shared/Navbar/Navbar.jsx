@@ -46,10 +46,10 @@ const Navbar = () => {
                         <div className="flex lg:gap-2 gap-1 lg:justify-center items-center ">
                             <Link to="/dashboard"><p className="btn btn-sm btn-outline border-2 hover:text-white hover:bg-stone-800 border-stone-800 text-shadow-outline">Dashboard</p></Link>
                             <button onClick={handleLogOut} className="btn btn-sm btn-outline border-2 hover:text-white hover:bg-stone-800 border-stone-800 text-shadow-outline">Sign Out</button>
-                            <p className="tooltip tooltip-bottom" data-tip={user.displayName}><img className="lg:h-8 lg:w-8 h-6 w-6 rounded-full border-2 border-stone-800" src={user.photoURL} alt="userPhoto" /></p>
+                            <p className="tooltip tooltip-bottom hidden lg:block" data-tip={user.displayName}><img className="lg:h-8 lg:w-8 h-6 w-6 rounded-full border-2 border-stone-800" src={user.photoURL} alt="userPhoto" /></p>
                         </div>
                     ) : (
-                        <div className="flex lg:gap-2 lg:justify-center items-center">
+                        <div className="flex lg:gap-2 gap-1 lg:justify-center items-center">
                             <Link to='/sign-in' className="btn btn-sm btn-outline border-2 hover:text-white hover:bg-stone-800 border-stone-800 text-shadow-outline">Sign In</Link>
                             <Link to='/sign-up' className="btn btn-sm btn-outline border-2 hover:text-white hover:bg-stone-800 border-stone-800 text-shadow-outline">Sign Up</Link>
                         </div>
