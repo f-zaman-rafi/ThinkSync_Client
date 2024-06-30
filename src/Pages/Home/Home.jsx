@@ -8,6 +8,9 @@ import 'aos/dist/aos.css'
 import Testimonials from "./Testimonials/Testimonials"
 import ContactUs from "./Contact Us/ContactUs";
 import NewBanner from "./Banner/NewBanner";
+import CourseExpect from "./CourseExpect/CourseExpect";
+import AnimatedCursor from "react-animated-cursor"
+import Counts from "./Counts/Counts";
 
 
 const Home = () => {
@@ -22,9 +25,33 @@ const Home = () => {
                 <title>Home | ThinkSync</title>
             </Helmet>
             <ScrollToTop />
+            <AnimatedCursor
+                innerSize={0}
+                outerSize={10}
+                color='37, 171, 224'
+                outerAlpha={0.6}
+                showSystemCursor={true}
+                trailingSpeed={8}
+                outerScale={2}
+                clickables={[
+                    'a',
+                    'input[type="text"]',
+                    'input[type="email"]',
+                    'input[type="number"]',
+                    'input[type="submit"]',
+                    'input[type="image"]',
+                    'label[for]',
+                    'select',
+                    'textarea',
+                    'button',
+                    '.link',
+                ]}
+            />
             <NewBanner />
+            <CourseExpect />
+            <Counts />
             <StudySessionSection></StudySessionSection>
-            <div data-aos="fade-left" className="my-40"> <Testimonials /></div>
+            <div className="my-40"> <Testimonials /></div>
             <TutorSection></TutorSection>
             <div><ContactUs /></div>
         </div>
