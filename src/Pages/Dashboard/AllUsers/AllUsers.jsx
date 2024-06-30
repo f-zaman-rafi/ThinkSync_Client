@@ -124,8 +124,8 @@ const AllUsers = () => {
             </Helmet>
             <section className="container px-4 mx-auto">
                 <div className="flex items-center gap-x-3 pb-5">
-                    <h2 className="text-lg font-medium text-gray-800 dark:text-white">Total Users</h2>
-                    <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400">{users.length} users</span>
+                    <h2 className="text-lg font-medium text-stone-700">Total Users</h2>
+                    <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400 ">{users.length} users</span>
                 </div>
 
                 <div className="flex items-center gap-x-3 mb-4">
@@ -143,15 +143,15 @@ const AllUsers = () => {
                         <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                             <div className="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
                                 {filteredUsers.length > 0 ? (
-                                    <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                                        <thead className="bg-gray-50 dark:bg-gray-800">
+                                    <table className="min-w-full divide-y divide-gray-200 ">
+                                        <thead className="  bg-stone-800">
                                             <tr>
-                                                <th scope="col" className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                <th scope="col" className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-200">
                                                     <div className="flex items-center gap-x-3">
                                                         <span>Name</span>
                                                     </div>
                                                 </th>
-                                                <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-200">
                                                     <button className="flex items-center gap-x-2">
                                                         <span>Role</span>
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-4 h-4">
@@ -159,7 +159,7 @@ const AllUsers = () => {
                                                         </svg>
                                                     </button>
                                                 </th>
-                                                <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">Email address</th>
+                                                <th scope="col" className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-200">Email address</th>
                                                 <th scope="col" className="relative py-3.5 px-4">
                                                     <span className="sr-only">Edit</span>
                                                 </th>
@@ -167,13 +167,13 @@ const AllUsers = () => {
                                         </thead>
 
                                         {filteredUsers.map(user => (
-                                            <tbody key={user._id} className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
+                                            <tbody key={user._id} className="bg-stone-800 divide-y divide-stone-700">
                                                 <tr>
                                                     <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                                                         <div className="inline-flex items-center gap-x-3">
                                                             <div className="flex items-center gap-x-2">
                                                                 <div>
-                                                                    <h2 className="font-medium text-gray-800 dark:text-white ">{user.name}</h2>
+                                                                    <h2 className="font-medium text-gray-300 ">{user.name}</h2>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -197,7 +197,7 @@ const AllUsers = () => {
 
                                                                             <select
                                                                                 id="role"
-                                                                                className="select w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                                                                className="select w-full px-4 py-2 mt-2 text-gray-700  border rounded-lg  bg-stone-200 dark:text-stone-900 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                                                                             >
                                                                                 <option value="" selected disabled>Pick a Role</option>
                                                                                 <option value="Admin">Admin</option>
