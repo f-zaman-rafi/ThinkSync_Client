@@ -28,13 +28,13 @@ const TutorSection = () => {
 
 
     return (
-        <div data-aos="fade-up" className="py-10">
-            <h1 className="font-bold text-4xl lg:text-6xl pb-20 text-center font-stardos text-stone-800">Mentors</h1>
+        <div className="py-10">
+            <h1 className="font-bold text-4xl lg:text-6xl pb-20 lg:ml-16 ml-5 text-stone-800">Our Mentors</h1>
             <div className="my-5">
                 <Marquee speed={70}>
                     <div className="flex lg:gap-20 gap-12 lg:my-20 my-12 lg:text-3xl font-bold mx-10 font-Playfair">
                         {uniqueTutors.map(tutorName => (
-                            <div key={tutorName} className=" py-2 max-w-5xl leading-loose text-[#FFFF00]">{tutorName}</div>
+                            <div key={tutorName} className=" py-2 max-w-5xl leading-loose text-stone-800">{tutorName}</div>
                         ))}
                     </div>
                 </Marquee>

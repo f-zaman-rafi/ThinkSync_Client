@@ -11,6 +11,8 @@ import NewBanner from "./Banner/NewBanner";
 import CourseExpect from "./CourseExpect/CourseExpect";
 import AnimatedCursor from "react-animated-cursor"
 import Counts from "./Counts/Counts";
+import Sponsors from "./Sponsors/Sponsors";
+
 
 
 const Home = () => {
@@ -48,11 +50,13 @@ const Home = () => {
                 ]}
             />
             <NewBanner />
+
             <CourseExpect />
             <Counts />
-            <StudySessionSection></StudySessionSection>
+            <StudySessionSection />
             <div className="my-40"> <Testimonials /></div>
             <TutorSection></TutorSection>
+            <Sponsors />
             <div><ContactUs /></div>
         </div>
     );

@@ -24,7 +24,7 @@ const ContactUs = () => {
                 <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
                     <div className="mb-4">
                         <div className="mb-6 max-w-3xl text-center sm:text-center md:mx-auto md:mb-12">
-                            <p className="font-bold text-4xl lg:text-5xl pt-8 text-center font-philosopher text-[#ff0000]">Get in Touch</p>
+                            <p className="font-bold text-4xl lg:text-5xl pt-8 text-center text-stone-800">Get in Touch</p>
                             <p className="mx-auto mt-4 max-w-3xl  text-gray-600 dark:text-slate-400">We would love to hear from you!</p>
                         </div>
                     </div>

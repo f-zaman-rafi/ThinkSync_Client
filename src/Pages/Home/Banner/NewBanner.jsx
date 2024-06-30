@@ -1,5 +1,7 @@
 import bannerIMG from "../../../assets/Photos/Banner-Photo.png"
 import Typewriter from 'typewriter-effect';
+import { Link } from 'react-scroll';
+
 
 const NewBanner = () => {
     return (
@@ -48,8 +50,9 @@ const NewBanner = () => {
 
             </div>
             <div className="pt-10 flex justify-center">
-                <p className="btn btn-outline btn-wide text-2xl font-protest-revolution text-[#ff2c2c] ">Explore Courses</p>
+                <Link to="exploreCourses" smooth={true} duration={1500} ><p className="btn btn-outline btn-wide text-2xl font-protest-revolution text-[#ff2c2c] ">Explore Courses</p></Link>
             </div>
+
         </div>
 
     );
