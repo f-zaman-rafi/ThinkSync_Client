@@ -29,7 +29,7 @@ const TutorSection = () => {
 
     return (
         <div className="py-10">
-            <h1 className="font-bold text-4xl lg:text-6xl pb-20 lg:ml-16 ml-5 text-stone-800">Our Mentors</h1>
+            <h1 className="font-bold text-4xl lg:text-6xl pb-20 lg:ml-16 ml-5 text-stone-800">Mentors & Sponsors</h1>
             <div className="my-5">
                 <Marquee speed={70}>
                     <div className="flex lg:gap-20 gap-12 lg:my-20 my-12 lg:text-3xl font-bold mx-10 font-Playfair">
