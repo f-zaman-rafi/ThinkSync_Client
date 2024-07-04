@@ -11,8 +11,8 @@ Welcome to StudySync, your platform for managing study sessions, assignments, an
 - **Alternate Live Site URL:** [StudySync Live](https://thinksync.netlify.app)
 
 ## Repositories
-- **Client Side GitHub Repository:** [StudySync Client](https://github.com/programming-hero-web-course1/b9a12-client-side-F-Zaman-Rafi.git)
-- **Server Side GitHub Repository:** [StudySync Server](https://github.com/programming-hero-web-course1/b9a12-server-side-F-Zaman-Rafi.git)
+- **Client Side GitHub Repository:** [StudySync Client](https://github.com/f-zaman-rafi/ThinkSync_Client)
+- **Server Side GitHub Repository:** [StudySync Server](https://github.com/f-zaman-rafi/ThinkSync_Server)
 
 ## Features
 1. **User Authentication:** Secure login and signup functionality.
@@ -30,7 +30,7 @@ Welcome to StudySync, your platform for managing study sessions, assignments, an
 1. **Clone the Repository:**
    ```bash
    # Clone the client side repository
-   git clone https://github.com/programming-hero-web-course1/b9a12-client-side-F-Zaman-Rafi.git
+   git clone https://github.com/f-zaman-rafi/ThinkSync_Client
    
    # Clone the server side repository
-   git clone https://github.com/programming-hero-web-course1/b9a12-server-side-F-Zaman-Rafi.git
+   git clone https://github.com/f-zaman-rafi/ThinkSync_Server
