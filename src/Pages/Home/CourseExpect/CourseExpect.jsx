@@ -44,7 +44,7 @@ const CourseExpect = () => {
                         <MouseParallaxContainer globalFactorX={-0.1} globalFactorY={-0.1} resetOnLeave={true}>
                             <MouseParallaxChild factorX={1.1} factorY={1.1}>
                                 <div className="p-5 ">
-                                    <div className="p-10 hover:bg-purple-200 rounded-xl shadow-md">
+                                    <div className="p-10 hover:bg-pink-200 rounded-xl shadow-md">
                                         <p className="">
                                             <GiSatelliteCommunication className="h-14 w-14 border-2 px-2 py-2 rounded-full  bg-white border-stone-800" />
                                         </p>
@@ -62,7 +62,7 @@ const CourseExpect = () => {
                         <MouseParallaxContainer globalFactorX={-0.1} globalFactorY={-0.1} resetOnLeave={true}>
                             <MouseParallaxChild factorX={1.1} factorY={1.1}>
                                 <div className="p-5">
-                                    <div className="p-10  hover:bg-purple-200  rounded-xl shadow-md">
+                                    <div className="p-10  hover:bg-amber-200  rounded-xl shadow-md">
                                         <p className="">
                                             <GiConversation className="h-14 w-14 border-2 px-2 py-2 rounded-full  bg-white border-stone-800" />
                                         </p>
@@ -79,7 +79,7 @@ const CourseExpect = () => {
                             <MouseParallaxChild factorX={1.1} factorY={1.1}>
 
                                 <div className="p-5">
-                                    <div className="p-10  hover:bg-purple-200  rounded-xl shadow-md">
+                                    <div className="p-10  hover:bg-green-200  rounded-xl shadow-md">
                                         <p className="">
                                             <PiCertificateThin className="h-14 w-14 border-2 px-2 py-2 rounded-full  bg-white border-stone-800" />
                                         </p>
