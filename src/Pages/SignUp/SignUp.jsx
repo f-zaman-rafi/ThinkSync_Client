@@ -20,41 +20,52 @@ const SignUp = () => {
     const axiosCommon = useAxiosCommon()
 
 
-    const onSubmit = data => {
-        console.log(data);
+    const onSubmit = async (data) => {
+        try {
+            console.log(data);
 
-        createUser(data.email, data.password)
-            .then(result => {
-                const loggedUser = result.user;
-                localStorage.setItem('token', loggedUser.stsTokenManager.accessToken);
-                updateUserProfile(data.username)
-                    .then(() => {
-                        setUser({ ...loggedUser, displayName: data.username, role: data.role });
+            // Create user
+            const result = await createUser(data.email, data.password);
+            const loggedUser = result.user;
 
-                        const userInfo = { name: data.username, email: data.email, role: data.role };
-                        axiosCommon.post('/users', userInfo)
-                            .then(res => {
-                                if (res.data.insertedId) {
-                                    console.log('Data inserted into the database successfully');
-                                    const from = location.state?.from?.pathname || '/';
-                                    navigate(from);
-                                    toast.success('Sign-Up Successfully');
-                                }
-                            })
-                            .catch(error => {
-                                console.error('Error inserting data into database:', error);
-                                toast.error('Error inserting data into database');
-                            });
-                    })
-                    .catch(error => {
-                        console.error('Error updating user profile:', error);
-                        toast.error('Error updating user profile');
-                    });
-            })
-            .catch(error => {
-                console.error('Error creating user:', error);
-                toast.error(error.message);
-            });
+            // Save token to localStorage
+            localStorage.setItem('token', loggedUser.stsTokenManager.accessToken);
+
+            // Update user profile
+            await updateUserProfile(data.username);
+
+            // Set user state
+            setUser({ ...loggedUser, displayName: data.username, role: data.role });
+
+            // Prepare user info for backend
+            const userInfo = { name: data.username, email: data.email, role: data.role };
+
+            // Post user info to backend
+            const res = await axiosCommon.post('/users', userInfo);
+            if (res.data.insertedId) {
+                console.log('Data inserted into the database successfully');
+
+                // Redirect
+                const from = location.state?.from?.pathname || '/';
+                navigate(from);
+
+                // Success message
+                toast.success('Sign-Up Successfully');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+
+            // Determine the type of error and display appropriate message
+            if (error.message.includes('Creating user')) {
+                toast.error('Error creating user');
+            } else if (error.message.includes('Updating user profile')) {
+                toast.error('Error updating user profile');
+            } else if (error.message.includes('Inserting data into database')) {
+                toast.error('Error inserting data into database');
+            } else {
+                toast.error('An unexpected error occurred');
+            }
+        }
     };
 
 

@@ -19,20 +19,37 @@ const SignIn = () => {
     const navigate = useNavigate();
     const axiosCommon = useAxiosCommon();
 
-    const onSubmit = async data => {
+    const onSubmit = async (data) => {
         try {
+            // Attempt to sign in the user with the provided email and password
             const result = await signIn(data.email, data.password);
+
+            // Retrieve the signed-in user's details
             const loggedUser = result.user;
+
+            // Store the user's access token in the local storage
             localStorage.setItem('token', loggedUser.stsTokenManager.accessToken);
+
+            // Determine the redirect path after sign-in (default to home page if not specified)
             const from = location.state?.from?.pathname || '/';
+
+            // Navigate to the specified path
             navigate(from);
+
+            // Show a success toast notification
             toast.success('Sign-In Successfully');
+
+            // Log the signed-in user's details to the console
             console.log(loggedUser);
         } catch (error) {
+            // Log the error to the console for debugging
             console.error(error);
+
+            // Show a failure toast notification
             toast.error('Sign-In Failed');
         }
     };
+
 
     const handleGoogleSignIn = async () => {
         try {
