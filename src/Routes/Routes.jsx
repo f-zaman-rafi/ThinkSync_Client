@@ -28,6 +28,7 @@ import ReviewAndRating from "../Pages/Dashboard/ReviewAndRating/ReviewAndRating"
 import StudentRoute from "./StudentRoute";
 import TutorRoute from "./TutorRoute";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import AuthGuard from "./AuthGuard";
 
 export const router = createBrowserRouter([
     {
@@ -45,11 +46,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/sign-up',
-                element: <SignUp></SignUp>
+                element: <AuthGuard><SignUp></SignUp></AuthGuard>
             },
             {
                 path: '/sign-in',
-                element: <SignIn></SignIn>
+                element: <AuthGuard><SignIn></SignIn></AuthGuard>
             },
 
         ]
