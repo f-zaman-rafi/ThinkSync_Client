@@ -1,18 +1,18 @@
-# StudySync
+# thinkSync
 
-Welcome to StudySync, your platform for managing study sessions, assignments, and educational materials efficiently!
+Welcome to thinkSync, your platform for managing study sessions, assignments, and educational materials efficiently!
 
 ## Admin Credentials
 - **Admin Username:** test@test.test
 - **Admin Password:** test!Test!123
 
 ## Live Site
-- **Live Site URL:** [StudySync Live](https://thinksynccc.web.app)
-- **Alternate Live Site URL:** [StudySync Live](https://thinksync.netlify.app)
+- **Live Site URL:** [thinkSync Live](https://thinksynccc.web.app)
+- **Alternate Live Site URL:** [thinkSync Live](https://thinksync.netlify.app)
 
 ## Repositories
-- **Client Side GitHub Repository:** [StudySync Client](https://github.com/f-zaman-rafi/ThinkSync_Client)
-- **Server Side GitHub Repository:** [StudySync Server](https://github.com/f-zaman-rafi/ThinkSync_Server)
+- **Client Side GitHub Repository:** [thinkSync Client](https://github.com/f-zaman-rafi/ThinkSync_Client)
+- **Server Side GitHub Repository:** [thinkSync Server](https://github.com/f-zaman-rafi/ThinkSync_Server)
 
 ## Features
 1. **User Authentication:** Secure login and signup functionality.

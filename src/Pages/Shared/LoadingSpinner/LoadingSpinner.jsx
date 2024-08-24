@@ -19,4 +19,4 @@ LoadingSpinner.propTypes = {
     smallHeight: PropTypes.bool,
 }
 
-export default LoadingSpinner
+export default LoadingSpinner 
