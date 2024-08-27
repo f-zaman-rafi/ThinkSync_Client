@@ -21,11 +21,11 @@ const DashNav = () => {
         {
             role === 'Student' ?
                 <>
-                    <Link to='booked-session'><p href="#" className="px-2.5 py-2 transition-colors duration-300 transform rounded-lg text-stone-700 hover:bg-stone-200  md:mx-2">View Booked Session</p>
+                    <Link to='booked-session'><p href="#" className="px-2.5 py-2 transition-colors duration-300 transform rounded-lg lg:text-stone-700 text-stone-300 hover:bg-stone-200  md:mx-2">View Booked Session</p>
                     </Link>
-                    <Link to='create-note'><p href="#" className="px-2.5 py-2 transition-colors duration-300 transform rounded-lg text-stone-700 hover:bg-stone-200  md:mx-2">Create Note</p></Link>
-                    <Link to='personal-note'><p href="#" className="px-2.5 py-2 transition-colors duration-300 transform rounded-lg text-stone-700 hover:bg-stone-200  md:mx-2">Manage Personal notes</p></Link>
-                    <Link to='study-materials'><p href="#" className="px-2.5 py-2 transition-colors duration-300 transform rounded-lg text-stone-700 hover:bg-stone-200  md:mx-2">View all study materials</p></Link>
+                    <Link to='create-note'><p href="#" className="px-2.5 py-2 transition-colors duration-300 transform rounded-lg lg:text-stone-700 text-stone-300 hover:bg-stone-200  md:mx-2">Create Note</p></Link>
+                    <Link to='personal-note'><p href="#" className="px-2.5 py-2 transition-colors duration-300 transform rounded-lg lg:text-stone-700 text-stone-300 hover:bg-stone-200  md:mx-2">Manage Personal notes</p></Link>
+                    <Link to='study-materials'><p href="#" className="px-2.5 py-2 transition-colors duration-300 transform rounded-lg lg:text-stone-700 text-stone-300 hover:bg-stone-200  md:mx-2">View all study materials</p></Link>
 
                 </>
                 :
@@ -36,11 +36,11 @@ const DashNav = () => {
         {
             role === 'Tutor' ?
                 <>
-                    <Link to='create-session'><p href="#" className="px-2.5 py-2 transition-colors duration-300 transform rounded-lg text-stone-700 hover:bg-stone-200  md:mx-2">Create Study Session</p>
+                    <Link to='create-session'><p href="#" className="px-2.5 py-2 transition-colors duration-300 transform rounded-lg lg:text-stone-700 text-stone-300 hover:bg-stone-200  md:mx-2">Create Study Session</p>
                     </Link>
-                    <Link to='sessions-by-tutor'><p href="#" className="px-2.5 py-2 transition-colors duration-300 transform rounded-lg text-stone-700 hover:bg-stone-200  md:mx-2">View all study sessions</p></Link>
-                    <Link to='upload-materials'><p href="#" className="px-2.5 py-2 transition-colors duration-300 transform rounded-lg text-stone-700 hover:bg-stone-200  md:mx-2">Upload Materials</p></Link>
-                    <Link to='material'><p href="#" className="px-2.5 py-2 transition-colors duration-300 transform rounded-lg text-stone-700 hover:bg-stone-200  md:mx-2">View all materials</p></Link>
+                    <Link to='sessions-by-tutor'><p href="#" className="px-2.5 py-2 transition-colors duration-300 transform rounded-lg lg:text-stone-700 text-stone-300 hover:bg-stone-200  md:mx-2">View all study sessions</p></Link>
+                    <Link to='upload-materials'><p href="#" className="px-2.5 py-2 transition-colors duration-300 transform rounded-lg lg:text-stone-700 text-stone-300 hover:bg-stone-200  md:mx-2">Upload Materials</p></Link>
+                    <Link to='material'><p href="#" className="px-2.5 py-2 transition-colors duration-300 transform rounded-lg lg:text-stone-700 text-stone-300 hover:bg-stone-200  md:mx-2">View all materials</p></Link>
 
                 </>
                 :
@@ -51,9 +51,9 @@ const DashNav = () => {
         {
             role === 'Admin' ?
                 <>
-                    <Link to='all-users'><p href="#" className="px-2.5 py-2 transition-colors duration-300 transform rounded-lg text-stone-700 hover:bg-stone-200  md:mx-2">View all users</p></Link>
-                    <Link to='all-sessions-dash'><p href="#" className="px-2.5 py-2 transition-colors duration-300 transform rounded-lg text-stone-700 hover:bg-stone-200  md:mx-2">View all study sessions</p></Link>
-                    <Link to='all-materials-admin'><p href="#" className="px-2.5 py-2 transition-colors duration-300 transform rounded-lg text-stone-700 hover:bg-stone-200  md:mx-2">View all materials</p>
+                    <Link to='all-users'><p href="#" className="px-2.5 py-2 transition-colors duration-300 transform rounded-lg lg:text-stone-700 text-stone-300 hover:bg-stone-200  md:mx-2">View all users</p></Link>
+                    <Link to='all-sessions-dash'><p href="#" className="px-2.5 py-2 transition-colors duration-300 transform rounded-lg lg:text-stone-700 text-stone-300 hover:bg-stone-200  md:mx-2">View all study sessions</p></Link>
+                    <Link to='all-materials-admin'><p href="#" className="px-2.5 py-2 transition-colors duration-300 transform rounded-lg lg:text-stone-700 text-stone-300 hover:bg-stone-200  md:mx-2">View all materials</p>
                     </Link>
                 </>
                 :
@@ -65,11 +65,11 @@ const DashNav = () => {
         <nav className="relative">
             <div className="container px-6 py-3 mx-auto md:flex">
                 <div className="flex flex-col lg:flex-row items-center justify-between">
-                    <p className="text-3xl font-bold text-stone-900">Dashboard <div className="flex justify-between my-4 items-center text-center"><Link to='/'><span className="text-xs rounded-full border-blue-300 border-2 px-4 py-1 font-medium text-stone-700">Home</span></Link><span className="text-xs font-medium rounded-full border-red-600 border-2 px-4 py-1 text-stone-700">{role}</span></div></p>
+                    <p className="text-3xl font-bold text-stone-900">Dashboard <div className="flex justify-between my-4 items-center text-center"><Link to='/'><span className="text-xs rounded-full border-blue-300 border-2 px-4 py-1 font-medium lg:text-stone-700 text-stone-300">Home</span></Link><span className="text-xs font-medium rounded-full border-red-600 border-2 px-4 py-1 lg:text-stone-700 text-stone-300">{role}</span></div></p>
 
                     {/* Mobile menu button */}
                     <div className="flex lg:hidden">
-                        <button onClick={() => setIsOpen(!isOpen)} type="button" className="text-gray-500 dark:text-stone-700 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400" aria-label="toggle menu">
+                        <button onClick={() => setIsOpen(!isOpen)} type="button" className="text-gray-500 dark:lg:text-stone-700 text-stone-300 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400" aria-label="toggle menu">
                             <svg className={`w-6 h-6 ${isOpen ? 'hidden' : 'block'}`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 8h16M4 16h16" />
                             </svg>
