@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import useAxiosCommon from "../../../Hooks/useAxiosCommon";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import useAuth from "../../../Hooks/useAuth";
+import useAuth from "../../../Hooksf/useAuth";
 import { Helmet } from "react-helmet-async";
 
 const CreateSession = () => {
