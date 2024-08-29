@@ -13,7 +13,7 @@ const useRole = () => {
         }
     });
 
-    const role = userData?.[0]?.role || 'Guest';
+    const role = userData?.[0]?.role || 'Student';
 
     return { role, isLoading };
 };

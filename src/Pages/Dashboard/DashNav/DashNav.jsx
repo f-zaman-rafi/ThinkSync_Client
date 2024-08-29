@@ -65,11 +65,11 @@ const DashNav = () => {
         <nav className="relative">
             <div className="container px-6 py-3 mx-auto md:flex">
                 <div className="flex flex-col lg:flex-row items-center justify-between">
-                    <p className="text-3xl font-bold text-stone-900">Dashboard <div className="flex justify-between my-4 items-center text-center"><Link to='/'><span className="text-xs rounded-full border-blue-300 border-2 px-4 py-1 font-medium lg:text-stone-700 text-stone-300">Home</span></Link><span className="text-xs font-medium rounded-full border-red-600 border-2 px-4 py-1 lg:text-stone-700 text-stone-300">{role}</span></div></p>
+                    <p className="text-3xl font-bold text-stone-900">Dashboard <div className="flex justify-between my-4 items-center text-center"><Link to='/'><span className="text-xs rounded-full border-blue-300 border-2 px-4 py-1 font-medium lg:text-stone-700 text-stone-800">Home</span></Link><span className="text-xs font-medium rounded-full border-red-600 border-2 px-4 py-1 lg:text-stone-700 text-stone-800">{role}</span></div></p>
 
                     {/* Mobile menu button */}
                     <div className="flex lg:hidden">
-                        <button onClick={() => setIsOpen(!isOpen)} type="button" className="text-gray-500 dark:lg:text-stone-700 text-stone-300 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400" aria-label="toggle menu">
+                        <button onClick={() => setIsOpen(!isOpen)} type="button" className="text-gray-500 dark:lg:text-stone-700 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400" aria-label="toggle menu">
                             <svg className={`w-6 h-6 ${isOpen ? 'hidden' : 'block'}`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 8h16M4 16h16" />
                             </svg>
