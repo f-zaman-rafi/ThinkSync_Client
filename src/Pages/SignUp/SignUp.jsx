@@ -65,6 +65,7 @@ const SignUp = () => {
             } else {
                 toast.error('An unexpected error occurred');
             }
+            navigate('/');
         }
     };
 
@@ -86,6 +87,7 @@ const SignUp = () => {
         } catch (error) {
             console.error(error);
             toast.error(error.message);
+            navigate('/');
         }
     };
 
@@ -106,6 +108,7 @@ const SignUp = () => {
         } catch (error) {
             console.error(error);
             toast.error(error.message);
+            navigate('/');
         }
     };
 

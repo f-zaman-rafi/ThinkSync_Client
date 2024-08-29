@@ -47,6 +47,8 @@ const SignIn = () => {
 
             // Show a failure toast notification
             toast.error('Sign-In Failed');
+
+            navigate('/');
         }
     };
 
@@ -68,6 +70,7 @@ const SignIn = () => {
         } catch (error) {
             console.error(error);
             toast.error(error.message);
+            navigate('/');
         }
     };
 
