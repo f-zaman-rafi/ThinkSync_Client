@@ -7,57 +7,67 @@ import useAxiosCommon from "../../../Hooks/useAxiosCommon";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
 
-const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
-
-const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
+// Access environment variables
+const CLOUD_NAME = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
+const UPLOAD_PRESET = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
+const UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
 
 const UploadSelection = () => {
-
     const axiosSecure = useAxiosSecure();
     const axiosCommon = useAxiosCommon();
-
-    const { id } = useParams()
-    const { register, handleSubmit } = useForm()
-    const navigate = useNavigate()
+    const { id } = useParams();
+    const { register, handleSubmit } = useForm();
+    const navigate = useNavigate();
 
     const onSubmit = async (data) => {
-        console.log(data)
-        const imgageFile = { image: data.image[0] }
-        const res = await axiosCommon.post(image_hosting_api, imgageFile, {
-            headers: {
-                'content-type': 'multipart/form-data'
-            }
-        });
-        if (res.data.success) {
-            const materialsItem = {
-                session_id: data.session_id,
-                title: data.title,
-                email: data.email,
-                link: data.link,
-                image: res.data.data.display_url
-            }
-            const materialsRes = await axiosSecure.post('/materials', materialsItem);
-            console.log(materialsRes.data)
-            if (materialsRes.data.insertedId) {
-                toast.success('Session Material added successfully');
-                navigate('/dashboard');
-            }
-        }
-        console.log(res.data)
-    }
+        console.log(data);
 
-    const { data: session = [], isLoading } = useQuery({
+        const formData = new FormData();
+        formData.append("file", data.image[0]);
+        formData.append("upload_preset", UPLOAD_PRESET);
+
+        try {
+            const uploadRes = await axiosCommon.post(UPLOAD_URL, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+
+            if (uploadRes.data && uploadRes.data.secure_url) {
+                const materialsItem = {
+                    session_id: data.session_id,
+                    title: data.title,
+                    email: data.email,
+                    link: data.link,
+                    image: uploadRes.data.secure_url
+                };
+
+                const materialsRes = await axiosSecure.post('/materials', materialsItem);
+
+                if (materialsRes.data.insertedId) {
+                    toast.success('Session Material added successfully');
+                    navigate('/dashboard');
+                }
+            } else {
+                throw new Error('Failed to upload image');
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            toast.error('An error occurred. Please try again.');
+        }
+    };
+
+    const { data: session = {}, isLoading } = useQuery({
         queryKey: ['session', id],
         queryFn: async () => {
-            const { data } = await axiosSecure.get(`sessions/${id}`)
-            return data
+            const { data } = await axiosSecure.get(`sessions/${id}`);
+            return data;
         }
-    })
+    });
 
-    if (isLoading) return <LoadingSpinner />
+    if (isLoading) return <LoadingSpinner />;
 
     const { title, email, _id } = session;
-
 
 
     return (
