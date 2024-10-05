@@ -3,6 +3,12 @@ import { useEffect } from 'react';
 function LiveChat() {
     useEffect(() => {
         var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+
+        // Configure the behavior of the chat widget
+        Tawk_API.onLoad = function () {
+            Tawk_API.minimize(); // Ensure the chat widget is minimized by default
+        };
+
         (function () {
             var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
             s1.async = true;
