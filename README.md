@@ -1,3 +1,7 @@
+## Update October 05,2024
+- **Added live chat feature**
+
+
 # thinkSync
 
 Welcome to thinkSync, your platform for managing study sessions, assignments, and educational materials efficiently!
